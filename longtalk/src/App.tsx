@@ -22,4 +22,7 @@ function App() {
 
 export default App;
 
-const Container = styled.div``;
+const Container = styled.div`
+  background-color: #f8a13a;
+  height: 100vh;
+`;
