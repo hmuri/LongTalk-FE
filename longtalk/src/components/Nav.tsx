@@ -45,6 +45,8 @@ export default function Nav() {
             {navItems[selectedItem].map((subItem, index) => (
               <SubHeader
                 key={subItem}
+                active={true}
+                delay={`${index * 0.2}s`}
                 style={{
                   borderBottom:
                     index !== navItems[selectedItem].length - 1
@@ -63,7 +65,7 @@ export default function Nav() {
 }
 
 const Container = styled.div`
-  width: 55%;
+  width: 50%;
   height: 100%;
   padding: 16px;
   display: flex;
@@ -71,6 +73,7 @@ const Container = styled.div`
   position: fixed;
   top: 8%;
   right: 5%;
+  z-index: 5;
 `;
 
 const Header = styled.div`
@@ -79,6 +82,7 @@ const Header = styled.div`
   height: 30px;
   justify-content: space-between;
   margin-bottom: 15px;
+  z-index: 5;
 `;
 
 const HeaderBtn = styled.button`
@@ -89,9 +93,9 @@ const HeaderBtn = styled.button`
   border: none;
   color: #000; /* 버튼 텍스트 색상 설정 */
   cursor: pointer; /* 마우스 커서 스타일 설정 */
-  font-size: 21px;
+  font-size: 23px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   line-height: normal;
   justify-content: center; /* 수평 가운데 정렬 */
   align-items: center;
@@ -108,7 +112,7 @@ const CircleContainer = styled.div`
   top: 30px;
 `;
 
-const SubHeader = styled.button`
+const SubHeader = styled.button<{ delay: string; active: boolean }>`
   background-color: black;
   color: white;
   padding: 2%;
@@ -118,4 +122,7 @@ const SubHeader = styled.button`
   line-height: normal;
   border: none;
   z-index: 100;
+  opacity: ${(props) => (props.active ? "1" : "0")};
+  transition: opacity 0.3s ease-in-out;
+  transition-delay: ${(props) => props.delay || "0s"};
 `;
