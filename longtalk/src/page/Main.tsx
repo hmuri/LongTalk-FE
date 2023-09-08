@@ -46,4 +46,7 @@ const SubmitBtn = styled.div`
   font-size: 30px;
   font-style: normal;
   font-weight: 500;
+  @media ${(props) => props.theme.tablet} {
+    display: none;
+  }
 `;
