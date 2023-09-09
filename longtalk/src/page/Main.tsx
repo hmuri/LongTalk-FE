@@ -4,11 +4,13 @@ import Logo from "../assets/svg/Logo";
 import LogoImg from "../assets/image/Logo.png";
 import LongImg from "../assets/image/Long.png";
 import TalkImg from "../assets/image/talk.png";
+import MobileNav from "../components/MobileNav";
 
 export default function Main() {
   return (
     <Container>
       <Nav />
+      <MobileNav />
       <LogoBox />
       <MobileLongBox />
       <MobileTalkBox />
