@@ -2,8 +2,9 @@ import { useState } from "react";
 import styled from "styled-components";
 import Circle from "../assets/svg/Circle";
 
-export default function Nav() {
+export default function MobileNav() {
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
+  const [isActive, setIsActive] = useState<boolean>(false);
   const navItems: { [key: string]: string[] } = {
     영화제: ["개최개요", "페스티벌 아이덴티티"],
     섹션: ["발단", "위기", "절정", "결말"],
