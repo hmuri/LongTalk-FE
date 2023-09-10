@@ -31,6 +31,8 @@ export default function MobileNav() {
                     display: "flex",
                     flexDirection: "row",
                     borderBottom: "solid 1px white",
+                    backgroundColor: "black",
+                    zIndex: "50",
                   }}
                   onClick={() => handleMainItemClick(mainItem)}
                 >
@@ -77,7 +79,7 @@ const MenuContainer = styled.div`
   flex-direction: column;
   width: 244px;
   height: calc(100vh - 7%);
-  padding: 43px 18px;
+  padding: 35px 18px;
   position: fixed;
   right: 0px;
   top: 7%;
@@ -100,7 +102,6 @@ const HeaderBox = styled.div`
   position: relative;
   flex-direction: column;
   width: 100%;
-  padding-bottom: 10px;
 `;
 
 const HeaderBtn = styled.button`
@@ -116,7 +117,7 @@ const HeaderBtn = styled.button`
   text-align: left;
   cursor: pointer;
   width: 100%;
-  padding: 30px 10px 15px 10px;
+  padding: 45px 10px 15px 10px;
 `;
 
 const ArrowBox = styled.div`
@@ -129,10 +130,11 @@ const ArrowBox = styled.div`
 
 const SubHeaderContainer = styled.div<{ active: boolean }>`
   overflow: hidden;
-  width: calc(100% - 10px);
-  padding-left: 10px;
+  width: calc(100% - 15px);
+  padding-left: 15px;
+
   transform: ${(props) =>
-    props.active ? "translateY(0%)" : "translateY(-100%)"};
+    props.active ? "translateY(0%)" : "translateY(-90%)"};
   transition: transform 0.3s ease-in-out;
 `;
 
