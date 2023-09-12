@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import Nav from "../components/Nav";
+import MobileNav from "../components/MobileNav";
 import Logo from "../assets/svg/Logo";
 import LogoImg from "../assets/image/Logo.png";
 import LongImg from "../assets/image/Long.png";
 import TalkImg from "../assets/image/talk.png";
-import MobileNav from "../components/MobileNav";
 
 export default function Main() {
   return (

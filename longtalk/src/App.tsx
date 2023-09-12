@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import styled from "styled-components";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Main from "./page/Main";
+import Section from "./page/Section";
 
 function App() {
   function setScreenSize() {
@@ -15,6 +16,7 @@ function App() {
     <Container>
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="/section" element={<Section />} />
       </Routes>
     </Container>
   );
@@ -23,6 +25,6 @@ function App() {
 export default App;
 
 const Container = styled.div`
-  background-color: #f8a13a;
+  background-color: #f1ab85;
   height: 100vh;
 `;
