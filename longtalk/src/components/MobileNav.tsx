@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
 import ArrowBottom from "../assets/icon/ArrowBottom.png";
 import MenuIcon from "../assets/icon/Menu.png";
+import { useRecoilState } from "recoil";
+import { menuActive } from "../recoil";
 
 export default function MobileNav() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
+  const [menuOpen, setMenuOpen] = useRecoilState<boolean>(menuActive);
 
   const navItems: { [key: string]: string[] } = {
     영화제: ["개최개요", "페스티벌 아이덴티티"],
@@ -15,20 +17,30 @@ export default function MobileNav() {
     "페스티벌 가이드": ["이용안내", "공지사항", "FAQ"],
   };
 
-  const handleMenuOpenClick = () => {
+  useEffect(() => {
+    const closeMenu = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (menuOpen && !target.closest("[data-menu-container")) {
+        handleMenuCloseClick();
+      }
+    };
+
+    if (menuOpen) {
+      document.addEventListener("click", closeMenu);
+    }
+    return () => {
+      document.removeEventListener("click", closeMenu);
+    };
+  }, [menuOpen]);
+
+  const handleMenuOpenClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
     setMenuOpen(true); // Toggle menuOpen state
     console.log("open");
   };
   const handleMenuCloseClick = () => {
     setMenuOpen(false); // Toggle menuOpen state
-  };
-
-  const handleContainerClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    handleMenuCloseClick();
-  };
-
-  const handleMenuContainerClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation();
+    console.log("close");
   };
 
   const handleMainItemClick = (mainItem: string) => {
@@ -39,8 +51,8 @@ export default function MobileNav() {
   return (
     <>
       <MenuIconBox onClick={handleMenuOpenClick} />
-      <Container menuOpen={menuOpen} onClick={handleContainerClick}>
-        <MenuContainer menuOpen={menuOpen} onClick={handleMenuContainerClick}>
+      <Container>
+        <MenuContainer data-menu-container menuOpen={menuOpen}>
           <div
             style={{ width: "100%", display: "flex", flexDirection: "column" }}
           >
@@ -86,17 +98,10 @@ export default function MobileNav() {
   );
 }
 
-const Container = styled.div<{ menuOpen: boolean }>`
+const Container = styled.div`
   display: none;
   @media ${(props) => props.theme.tablet} {
-    ${(props) =>
-      props.menuOpen &&
-      css`
-        display: flex;
-        background: rgba(0, 0, 0, 0.21);
-      `}
-    width: 100vw;
-    height: 100vh;
+    display: flex;
 
     z-index: 10;
   }
@@ -115,6 +120,7 @@ const MenuIconBox = styled.div`
     right: 10%;
     top: 7%;
   }
+  z-index: 7;
 `;
 
 const MenuContainer = styled.div<{ menuOpen: boolean }>`

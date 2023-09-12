@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
+import { RecoilRoot } from "recoil";
 import reportWebVitals from "./reportWebVitals";
 import theme from "../src/style/theme";
 import { ThemeProvider } from "styled-components";
@@ -13,9 +14,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <ThemeProvider theme={theme}>
     <React.StrictMode>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <RecoilRoot>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </RecoilRoot>
     </React.StrictMode>
   </ThemeProvider>
 );

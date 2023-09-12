@@ -1,31 +1,36 @@
 import styled from "styled-components";
 import Nav from "../components/Nav";
 import MobileNav from "../components/MobileNav";
-import Logo from "../assets/svg/Logo";
 import LogoImg from "../assets/image/Logo.png";
 import LongImg from "../assets/image/Long.png";
 import TalkImg from "../assets/image/talk.png";
+import { useRecoilValue } from "recoil";
+import { menuActive } from "../recoil";
 
 export default function Main() {
+  const isActive = useRecoilValue(menuActive);
+
   return (
-    <Container>
+    <Container isActive={isActive}>
       <Nav />
       <MobileNav />
       <LogoBox />
       <MobileLongBox />
       <MobileTalkBox />
-      <SubmitBtn>영화 출품하기</SubmitBtn>
+      <SubmitBtn isActive={isActive}>영화 출품하기</SubmitBtn>
     </Container>
   );
 }
 
-const Container = styled.div`
+const Container = styled.div<{ isActive: boolean }>`
   width: 100%;
   height: 100%;
   background: radial-gradient(
     153.24% 134.93% at 55.76% 37.06%,
-    #f1ab85 30.21%,
-    #e45914 100%
+    ${(props) =>
+      props.isActive ? "rgba(191, 136, 105, 0.8)" : "rgba(241, 171, 133, 0.8)"},
+    rgba(241, 171, 133, 0.6) 30.21%,
+    rgba(228, 89, 20, 0.6) 100%
   );
 `;
 
@@ -70,7 +75,7 @@ const MobileTalkBox = styled.div`
   }
 `;
 
-const SubmitBtn = styled.div`
+const SubmitBtn = styled.div<{ isActive: boolean }>`
   position: fixed;
   bottom: 15%;
   left: calc(25% - 110px);
@@ -97,5 +102,7 @@ const SubmitBtn = styled.div`
     font-size: 22px;
     font-style: normal;
     font-weight: 400;
+    background-color: ${(props) => (props.isActive ? "#bf8869" : "#F1AB85")};
+    border: 2px solid ${(props) => (props.isActive ? "#e9e9e9" : "white")};
   }
 `;
