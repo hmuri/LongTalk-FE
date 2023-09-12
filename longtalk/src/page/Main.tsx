@@ -22,7 +22,11 @@ export default function Main() {
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  background-color: #f8a13a;
+  background: radial-gradient(
+    153.24% 134.93% at 55.76% 37.06%,
+    #f1ab85 30.21%,
+    #e45914 100%
+  );
 `;
 
 const LogoBox = styled.div`
@@ -43,7 +47,7 @@ const MobileLongBox = styled.div`
   @media ${(props) => props.theme.tablet} {
     display: flex;
     width: 270px;
-    height: 460px;
+    height: 53%;
     background-size: cover;
     background-position: bottom;
     position: fixed;
@@ -55,7 +59,7 @@ const MobileTalkBox = styled.div`
   display: none;
   @media ${(props) => props.theme.tablet} {
     display: flex;
-    width: 170px;
+    width: 169px;
     height: 83px;
     background-size: cover;
     position: fixed;
@@ -75,14 +79,16 @@ const SubmitBtn = styled.div`
   height: 25px;
   padding: 25px 110px;
   justify-content: center;
+  color: white;
   align-items: center;
   border-radius: 40px;
-  border: 2px solid black;
-  background-color: #e45914;
+  border: 2px solid white;
+  background-color: #f1ab85;
   font-family: Pretendard Variable;
-  font-size: 30px;
+  font-size: 22px;
   font-style: normal;
   font-weight: 500;
+  z-index: 0;
   @media ${(props) => props.theme.tablet} {
     width: 160px;
     height: 3px;
