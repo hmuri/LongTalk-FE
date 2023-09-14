@@ -71,7 +71,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   position: fixed;
-  top: 8%;
+  top: 30px;
   right: 5%;
   z-index: 5;
   @media ${(props) => props.theme.mobile} {
@@ -117,6 +117,7 @@ const CircleContainer = styled.div`
 
 const SubHeader = styled.button<{ delay: string; active: boolean }>`
   background-color: black;
+  border-radius: 2px;
   color: white;
   padding: 2%;
   font-size: 21px;

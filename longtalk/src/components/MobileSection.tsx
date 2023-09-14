@@ -33,9 +33,12 @@ export default function MobileSection() {
 }
 
 const BodyContainer = styled.div`
-  display: flex;
-  margin: auto 0 0 0;
-  height: 59%;
+  display: none;
+  @media ${(props) => props.theme.mobile} {
+    display: flex;
+    margin: auto 0 0 0;
+    height: 59%;
+  }
 `;
 
 const Sidebar = styled.div`
