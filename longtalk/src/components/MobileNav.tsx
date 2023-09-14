@@ -100,7 +100,7 @@ export default function MobileNav() {
 
 const Container = styled.div`
   display: none;
-  @media ${(props) => props.theme.tablet} {
+  @media ${(props) => props.theme.mobile} {
     display: flex;
 
     z-index: 10;
@@ -109,7 +109,7 @@ const Container = styled.div`
 
 const MenuIconBox = styled.div`
   display: none;
-  @media ${(props) => props.theme.tablet} {
+  @media ${(props) => props.theme.mobile} {
     display: flex;
     position: fixed;
     width: 25px;
