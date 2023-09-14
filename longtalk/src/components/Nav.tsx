@@ -74,7 +74,7 @@ const Container = styled.div`
   top: 8%;
   right: 5%;
   z-index: 5;
-  @media ${(props) => props.theme.tablet} {
+  @media ${(props) => props.theme.mobile} {
     display: none;
   }
 `;

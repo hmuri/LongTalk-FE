@@ -1,6 +1,6 @@
 const size = {
   desktop: "1150px",
-  tablet: "975px",
+  tablet: "850px",
 };
 
 const theme = {

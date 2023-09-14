@@ -42,14 +42,14 @@ const LogoBox = styled.div`
   left: 146px;
   background-position: bottom;
   background-image: url(${LogoImg});
-  @media ${(props) => props.theme.tablet} {
+  @media ${(props) => props.theme.mobile} {
     display: none;
   }
 `;
 
 const MobileLongBox = styled.div`
   display: none;
-  @media ${(props) => props.theme.tablet} {
+  @media ${(props) => props.theme.mobile} {
     display: flex;
     width: 270px;
     height: 53%;
@@ -62,7 +62,7 @@ const MobileLongBox = styled.div`
 `;
 const MobileTalkBox = styled.div`
   display: none;
-  @media ${(props) => props.theme.tablet} {
+  @media ${(props) => props.theme.mobile} {
     display: flex;
     width: 169px;
     height: 83px;
@@ -94,7 +94,7 @@ const SubmitBtn = styled.div<{ isActive: boolean }>`
   font-style: normal;
   font-weight: 500;
   z-index: 0;
-  @media ${(props) => props.theme.tablet} {
+  @media ${(props) => props.theme.mobile} {
     width: 160px;
     height: 3px;
     padding: 25px 70px;
