@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import PCHeader from "../assets/image/PCHeader.png";
 export default function () {
-  return <MobileHeaderBox />;
+  return <PCHeaderBox />;
 }
 
-const MobileHeaderBox = styled.div`
+const PCHeaderBox = styled.div`
   display: flex;
   width: 100%;
-  height: 110px;
+  height: 14%;
   background-size: cover;
   position: fixed;
   top: 30px;

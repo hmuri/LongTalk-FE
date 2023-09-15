@@ -21,6 +21,7 @@ export default function Section() {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  background-color: #efeae1;
   width: 100vw;
   height: 100vh;
 `;
