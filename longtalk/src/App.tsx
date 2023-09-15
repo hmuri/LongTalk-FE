@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Main from "./page/Main";
 import Section from "./page/Section";
+import Notice from "./page/Notice";
 import { useRecoilValue } from "recoil";
 import { menuActive } from "./recoil";
 
@@ -21,6 +22,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/section" element={<Section />} />
+        <Route path="/notice" element={<Notice />} />
       </Routes>
     </Container>
   );
