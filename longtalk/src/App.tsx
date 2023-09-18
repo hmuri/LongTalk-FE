@@ -4,6 +4,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import Main from "./page/Main";
 import Section from "./page/Section";
 import Notice from "./page/Notice";
+import HoldInfo from "./page/HoldInfo";
 import { useRecoilValue } from "recoil";
 import { menuActive } from "./recoil";
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/section" element={<Section />} />
         <Route path="/notice" element={<Notice />} />
+        <Route path="/holdInfo" element={<HoldInfo />} />
       </Routes>
     </Container>
   );
