@@ -4,11 +4,18 @@ import MobileNav from "../components/MobileNav";
 import LogoImg from "../assets/image/Logo.png";
 import LongImg from "../assets/image/Long.png";
 import TalkImg from "../assets/image/talk.png";
+import SubmitPage from "../components/SubmitPage";
 import { useRecoilValue } from "recoil";
 import { menuActive } from "../recoil";
+import { useState } from "react";
 
 export default function Main() {
   const isActive = useRecoilValue(menuActive);
+  const [submitActive, setSubmitActive] = useState(false);
+  const handleSubmitPage = () => {
+    console.log(submitActive);
+    setSubmitActive(true);
+  };
 
   return (
     <Container isActive={isActive}>
@@ -17,7 +24,10 @@ export default function Main() {
       <LogoBox />
       <MobileLongBox />
       <MobileTalkBox />
-      <SubmitBtn isActive={isActive}>영화 출품하기</SubmitBtn>
+      <SubmitBtn isActive={isActive} onClick={handleSubmitPage}>
+        영화 출품하기
+      </SubmitBtn>
+      <SubmitPage submitActive={submitActive} />
     </Container>
   );
 }
@@ -27,10 +37,8 @@ const Container = styled.div<{ isActive: boolean }>`
   height: 100%;
   background: radial-gradient(
     153.24% 134.93% at 55.76% 37.06%,
-    ${(props) =>
-      props.isActive ? "rgba(191, 136, 105, 0.8)" : "rgba(241, 171, 133, 0.8)"},
-    rgba(241, 171, 133, 0.6) 30.21%,
-    rgba(228, 89, 20, 0.6) 100%
+    #f1ab85 30.21%,
+    #e45914 100%
   );
 `;
 
@@ -93,7 +101,7 @@ const SubmitBtn = styled.div<{ isActive: boolean }>`
   font-size: 22px;
   font-style: normal;
   font-weight: 500;
-  z-index: 0;
+  z-index: 6;
   @media ${(props) => props.theme.mobile} {
     width: 160px;
     height: 3px;

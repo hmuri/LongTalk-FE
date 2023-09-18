@@ -108,7 +108,7 @@ const Container = styled.div<{ menuOpen: boolean }>`
 
     background: ${(props) => (props.menuOpen ? "rgba(0, 0, 0, 0.65)" : "none")};
 
-    z-index: 5;
+    z-index: ${(props) => (props.menuOpen ? "5" : "auto")};
   }
 `;
 
