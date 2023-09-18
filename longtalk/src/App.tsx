@@ -5,6 +5,7 @@ import Main from "./page/Main";
 import Section from "./page/Section";
 import Notice from "./page/Notice";
 import HoldInfo from "./page/HoldInfo";
+import Identity from "./page/Identity";
 import { useRecoilValue } from "recoil";
 import { menuActive } from "./recoil";
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/section" element={<Section />} />
         <Route path="/notice" element={<Notice />} />
         <Route path="/holdInfo" element={<HoldInfo />} />
+        <Route path="/identity" element={<Identity />} />
       </Routes>
     </Container>
   );
