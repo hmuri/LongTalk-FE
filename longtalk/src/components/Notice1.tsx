@@ -1,5 +1,13 @@
-export default function Notice1() {
-  return (
+import React, { useState } from "react";
+
+export default function Notice1({ isExpanded }: { isExpanded: boolean }) {
+  const previewContent = (
+    <p>
+      르포(REPORTAGE)가 주관하는 제1회 소통영화제 「롱톡」이 2023년 9월 21일부터
+      단편영화 공모를 진행합니다...
+    </p>
+  );
+  const fullContent = (
     <div>
       <h1>제1회 소통영화제 「롱톡」 안내</h1>
       <p>
@@ -55,4 +63,5 @@ export default function Notice1() {
       </p>
     </div>
   );
+  return <div>{isExpanded ? fullContent : previewContent}</div>;
 }

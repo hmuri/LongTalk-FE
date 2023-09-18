@@ -9,12 +9,15 @@ import Nav from "../components/Nav";
 
 export default function Notice() {
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
+  const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
   const navItems: { [key: string]: string[] } = {
     "01": ["소통영화제 롱톡 출품 및 상영작 공모 안내", "2023.09.18", "Notice1"],
   };
 
-  const componentMap: { [key: string]: () => JSX.Element } = {
+  const componentMap: {
+    [key: string]: ({ isExpanded }: { isExpanded: boolean }) => JSX.Element;
+  } = {
     Notice1: Notice1,
   };
 
@@ -23,8 +26,17 @@ export default function Notice() {
     : null;
 
   const handleMainItemClick = (mainItem: string) => {
-    setSelectedItem((prev) => (prev === mainItem ? null : mainItem));
+    if (selectedItem === mainItem) {
+      setIsExpanded(!isExpanded); // 이미 선택된 항목을 다시 클릭하면 isExpanded를 토글
+    } else {
+      setSelectedItem(mainItem); // 새로운 항목을 선택하면 해당 항목으로 설정
+      setIsExpanded(true); // 새로운 항목을 선택하면 항상 펼치기
+    }
   };
+
+  useEffect(() => {
+    setIsExpanded(true); // selectedItem이 변경되면 isExpanded를 true로 설정
+  }, [selectedItem]);
 
   return (
     <Container>
@@ -44,13 +56,12 @@ export default function Notice() {
                   <HeaderBtn onClick={() => handleMainItemClick(mainItem)}>
                     {mainItem} {navItems[mainItem][0]} {navItems[mainItem][1]}
                   </HeaderBtn>
+                  <SubHeaderContainer active={selectedItem === mainItem}>
+                    {selectedItem === mainItem && DynamicComponent && (
+                      <DynamicComponent isExpanded={isExpanded} />
+                    )}
+                  </SubHeaderContainer>
                 </>
-
-                <SubHeaderContainer active={selectedItem === mainItem}>
-                  {selectedItem === mainItem && DynamicComponent && (
-                    <DynamicComponent />
-                  )}
-                </SubHeaderContainer>
               </HeaderBox>
             ))}
           </Header>
