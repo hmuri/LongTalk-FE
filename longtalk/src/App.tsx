@@ -32,5 +32,6 @@ export default App;
 
 const Container = styled.div<{ isActive: boolean }>`
   background-color: ${(props) => (props.isActive ? "#bf8869" : "#F1AB85")};
-  height: 100vh;
+  display: flex;
+  height: calc(var(--vh, 1vh) * 100);
 `;
