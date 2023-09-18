@@ -51,7 +51,7 @@ export default function MobileNav() {
   return (
     <>
       <MenuIconBox onClick={handleMenuOpenClick} />
-      <Container>
+      <Container menuOpen={menuOpen}>
         <MenuContainer data-menu-container menuOpen={menuOpen}>
           <div
             style={{ width: "100%", display: "flex", flexDirection: "column" }}
@@ -98,12 +98,17 @@ export default function MobileNav() {
   );
 }
 
-const Container = styled.div`
+const Container = styled.div<{ menuOpen: boolean }>`
   display: none;
   @media ${(props) => props.theme.mobile} {
     display: flex;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
 
-    z-index: 10;
+    background: ${(props) => (props.menuOpen ? "rgba(0, 0, 0, 0.65)" : "none")};
+
+    z-index: 5;
   }
 `;
 
