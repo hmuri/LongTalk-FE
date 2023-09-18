@@ -71,7 +71,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   position: fixed;
-  top: 30px;
+  top: 4%;
   right: 5%;
   z-index: 5;
   @media ${(props) => props.theme.mobile} {
