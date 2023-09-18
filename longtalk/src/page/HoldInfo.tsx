@@ -27,10 +27,10 @@ const ImageContainer = styled.div<{ translateValue: number }>`
   transition: transform ease-out 0.3s;
 `;
 
-const Image = styled.img<{ marginRight: string }>`
+const Image = styled.img<{ marginRight: string; isMain: boolean }>`
   width: 100%;
   height: 100%;
-  margin-right: ${(props) => props.marginRight || "0%"};
+  margin-right: ${(props) => (props.isMain ? props.marginRight : "0%")};
 `;
 
 const Button = styled.button`
@@ -76,6 +76,7 @@ export default function HoldInfo() {
                 alt=""
                 key={index}
                 marginRight={marginRightValues[index] || "0%"}
+                isMain={index === currentIndex}
               />
             ))}
           </ImageContainer>
