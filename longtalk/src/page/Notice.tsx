@@ -9,14 +9,18 @@ import Nav from "../components/Nav";
 
 export default function Notice() {
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
-  const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
   const navItems: { [key: string]: string[] } = {
-    "01": ["소통영화제 롱톡 출품 및 상영작 공모 안내", "2023.09.18", "Notice1"],
+    "01": [
+      "소통영화제 롱톡 출품 및 상영작 공모 안내",
+      "2023.09.18",
+      "Notice1",
+      "르포(REPORTAGE)가 주관하는 제1회 소통영화제 「롱톡」이 2023년 9월 21일부터 단편영화 공모를 진행합니다...",
+    ],
   };
 
   const componentMap: {
-    [key: string]: ({ isExpanded }: { isExpanded: boolean }) => JSX.Element;
+    [key: string]: () => JSX.Element;
   } = {
     Notice1: Notice1,
   };
@@ -26,17 +30,8 @@ export default function Notice() {
     : null;
 
   const handleMainItemClick = (mainItem: string) => {
-    if (selectedItem === mainItem) {
-      setIsExpanded(!isExpanded); // 이미 선택된 항목을 다시 클릭하면 isExpanded를 토글
-    } else {
-      setSelectedItem(mainItem); // 새로운 항목을 선택하면 해당 항목으로 설정
-      setIsExpanded(true); // 새로운 항목을 선택하면 항상 펼치기
-    }
+    setSelectedItem((prev) => (prev === mainItem ? null : mainItem));
   };
-
-  useEffect(() => {
-    setIsExpanded(true); // selectedItem이 변경되면 isExpanded를 true로 설정
-  }, [selectedItem]);
 
   return (
     <Container>
@@ -54,11 +49,20 @@ export default function Notice() {
               <HeaderBox key={mainItem}>
                 <>
                   <HeaderBtn onClick={() => handleMainItemClick(mainItem)}>
-                    {mainItem} {navItems[mainItem][0]} {navItems[mainItem][1]}
+                    <p>
+                      {mainItem +
+                        navItems[mainItem][0] +
+                        " " +
+                        navItems[mainItem][1]}
+                    </p>
+                    <p />
+                    {selectedItem === mainItem ? null : (
+                      <p>{navItems[mainItem][3]}</p>
+                    )}
                   </HeaderBtn>
                   <SubHeaderContainer active={selectedItem === mainItem}>
                     {selectedItem === mainItem && DynamicComponent && (
-                      <DynamicComponent isExpanded={isExpanded} />
+                      <DynamicComponent />
                     )}
                   </SubHeaderContainer>
                 </>
