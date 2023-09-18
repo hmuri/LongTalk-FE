@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import PCHeader from "../assets/image/PCHeader.png";
-export default function () {
+import PCHeaderImg from "../assets/image/PCHeader.png";
+export default function PCHeader() {
   return <PCHeaderBox />;
 }
 
@@ -11,7 +11,7 @@ const PCHeaderBox = styled.div`
   background-size: cover;
   position: fixed;
   top: 30px;
-  background-image: url(${PCHeader});
+  background-image: url(${PCHeaderImg});
   @media ${(props) => props.theme.mobile} {
     display: none;
   }
