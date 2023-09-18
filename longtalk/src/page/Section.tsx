@@ -4,6 +4,7 @@ import Nav from "../components/Nav";
 import MobileNav from "../components/MobileNav";
 import MobileSection from "../components/MobileSection";
 import PCHeader from "../components/PCHeader";
+import MobileSectionImg from "../assets/image/MobileSection.png";
 
 export default function Section() {
   return (
@@ -12,7 +13,7 @@ export default function Section() {
       <PCHeader />
       <MobileNav />
       <MobileHeader />
-      <MobileDescription></MobileDescription>
+      <MobileSectionImgBox src={MobileSectionImg} />
       <MobileSection />
     </Container>
   );
@@ -26,13 +27,13 @@ const Container = styled.div`
   height: 100vh;
 `;
 
-const MobileDescription = styled.div`
+const MobileSectionImgBox = styled.img`
   display: none;
   @media ${(props) => props.theme.mobile} {
     display: flex;
-    width: 90%;
-    height: 25%;
-    margin: 135px auto 20px auto;
+    width: 100%;
+    height: 30%;
+    margin-top: 90px;
     background-color: grey;
   }
 `;

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import SideBarImg from "../assets/image/SectionSideBar.png";
 
 export default function MobileSection() {
   const [selectedSection, setSelectedSection] = useState<string | null>(null);
@@ -12,6 +13,7 @@ export default function MobileSection() {
   };
   return (
     <BodyContainer>
+      <SideBarImgBox src={SideBarImg} />
       <Sidebar>
         {Object.keys(sectionItem).map((key: string, index: number) => (
           <>
@@ -37,30 +39,36 @@ const BodyContainer = styled.div`
   @media ${(props) => props.theme.mobile} {
     display: flex;
     margin: auto 0 0 0;
-    height: 59%;
+    height: 60%;
   }
 `;
 
+const SideBarImgBox = styled.img`
+  display: flex;
+  height: 60%;
+  position: fixed;
+  left: 0%;
+  bottom: 0%;
+`;
+
 const Sidebar = styled.div`
+  width: 169px;
   height: 100%;
   flex: 0.2;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: #f0f0f0;
+  z-index: 5;
 `;
 
 const SidebarItem = styled.div`
   height: 100%;
+  width: 108px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
   cursor: pointer;
-  &:hover {
-    background-color: #ddd;
-  }
 `;
 
 const ContentContainer = styled.div`
