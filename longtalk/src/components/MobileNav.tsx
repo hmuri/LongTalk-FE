@@ -108,7 +108,7 @@ const Container = styled.div<{ menuOpen: boolean }>`
 
     background: ${(props) => (props.menuOpen ? "rgba(0, 0, 0, 0.65)" : "none")};
 
-    z-index: ${(props) => (props.menuOpen ? "5" : "auto")};
+    z-index: ${(props) => (props.menuOpen ? "10" : "auto")};
   }
 `;
 
@@ -139,7 +139,7 @@ const MenuContainer = styled.div<{ menuOpen: boolean }>`
   top: 7%;
   border-radius: 4px;
   background-color: black;
-  z-index: 10;
+  z-index: 20;
   visibility: ${(props) => (props.menuOpen ? "visible" : "hidden")}; // 추가
   transform: translateX(${(props) => (props.menuOpen ? "0%" : "100%")});
   opacity: ${(props) => (props.menuOpen ? "1" : "0")};
