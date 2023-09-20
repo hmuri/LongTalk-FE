@@ -120,7 +120,7 @@ const BodyContainer = styled.div`
   @media ${(props) => props.theme.mobile} {
     display: flex;
     margin: auto 0 0 0;
-    height: 60%;
+    height: 58%;
   }
 `;
 
@@ -177,7 +177,7 @@ const Color = styled.div`
 
 const SideBarImgBox = styled.img`
   display: flex;
-  height: 60%;
+  height: 58%;
   position: fixed;
   left: 0%;
   bottom: 0%;
@@ -197,7 +197,7 @@ const Sidebar = styled.div`
 
 const SidebarItem = styled.div<{ selected: boolean }>`
   height: 100%;
-  width: 108px;
+  width: 90px;
   display: flex;
   justify-content: center;
   align-items: center;
