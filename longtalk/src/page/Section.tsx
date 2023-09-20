@@ -26,16 +26,14 @@ const Container = styled.div`
   flex-direction: column;
   background-color: #efeae1;
   width: 100%;
-  height: 100%;
 `;
 
 const MobileSectionImgBox = styled.img`
   display: none;
   @media ${(props) => props.theme.mobile} {
     display: flex;
-    flex: 0.3;
     width: 100%;
-    height: 30%;
+    height: 200px;
     margin-top: 90px;
     background-color: grey;
   }

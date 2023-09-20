@@ -18,7 +18,7 @@ export default function Nav() {
       : setSelectedItem(mainItem);
   };
   return (
-    <Container>
+    <Container isDisabled={selectedItem == null}>
       <div style={{ width: "100%", display: "flex", flexDirection: "column" }}>
         <Header>
           {Object.keys(navItems).map((mainItem) => (
@@ -64,16 +64,15 @@ export default function Nav() {
   );
 }
 
-const Container = styled.div`
+const Container = styled.div<{ isDisabled: boolean }>`
   width: 50%;
-  height: 100%;
   padding: 16px;
   display: flex;
   flex-direction: column;
   position: fixed;
   top: 4%;
   right: 5%;
-  z-index: 5;
+  z-index: 20;
   @media ${(props) => props.theme.mobile} {
     display: none;
   }
@@ -85,7 +84,7 @@ const Header = styled.div`
   height: 30px;
   justify-content: space-between;
   margin-bottom: 15px;
-  z-index: 5;
+  z-index: 10;
 `;
 
 const HeaderBtn = styled.button`
@@ -94,6 +93,7 @@ const HeaderBtn = styled.button`
   position: relative;
   background: none;
   border: none;
+  z-index: 10;
   color: #000; /* 버튼 텍스트 색상 설정 */
   cursor: pointer; /* 마우스 커서 스타일 설정 */
   font-size: 23px;

@@ -15,5 +15,6 @@ const MobileHeaderBox = styled.div`
     position: fixed;
     top: 46px;
     background-image: url(${MobileHeader});
+    z-index: 5;
   }
 `;
