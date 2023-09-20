@@ -93,7 +93,7 @@ const MenuContainer = styled.div`
   padding-top: 3%;
   border: 1px solid black;
   background-color: #afbfdb;
-  z-index: 20;
+  z-index: 5;
 `;
 
 const ContentContainer = styled.div`
