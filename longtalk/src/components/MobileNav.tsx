@@ -80,11 +80,9 @@ export default function MobileNav() {
   const handleMenuOpenClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
     setMenuOpen(true); // Toggle menuOpen state
-    console.log("open");
   };
   const handleMenuCloseClick = () => {
     setMenuOpen(false); // Toggle menuOpen state
-    console.log("close");
   };
 
   return (
