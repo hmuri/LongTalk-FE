@@ -4,10 +4,13 @@ import PCHeader from "../components/PCHeader";
 import MobileHeader from "../components/MobileHeader";
 import MobileNav from "../components/MobileNav";
 import Nav from "../components/Nav";
+import MobileHoldInfo from "../components/MobileHoldInfo";
 import HoldInfo1 from "../assets/image/HoldSlider/HoldInfo1.png";
 import HoldInfo2 from "../assets/image/HoldSlider/HoldInfo2.png";
 import HoldInfo3 from "../assets/image/HoldSlider/HoldInfo3.png";
 import HoldInfo4 from "../assets/image/HoldSlider/HoldInfo4.png";
+
+//시간 남으면 스트라이프로 바꾸기
 
 const SliderContainer = styled.div`
   display: flex;
@@ -17,7 +20,7 @@ const SliderContainer = styled.div`
   margin: auto;
   margin-bottom: 10%;
   @media ${(props) => props.theme.mobile} {
-    margin-bottom: 30%;
+    display: none;
   }
 `;
 
@@ -40,6 +43,9 @@ const Button = styled.button`
   position: fixed;
   right: 5%;
   top: 50%;
+  @media ${(props) => props.theme.mobile} {
+    display: none;
+  }
 `;
 
 const images = [HoldInfo1, HoldInfo2, HoldInfo3, HoldInfo4];
@@ -53,11 +59,11 @@ export default function HoldInfo() {
     );
   };
 
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
-  };
+  // const prevSlide = () => {
+  //   setCurrentIndex((prevIndex) =>
+  //     prevIndex === 0 ? images.length - 1 : prevIndex - 1
+  //   );
+  // };
 
   return (
     <Container>
@@ -65,6 +71,7 @@ export default function HoldInfo() {
       <PCHeader />
       <MobileHeader />
       <MobileNav />
+      <MobileHoldInfo />
       <>
         <SliderContainer>
           <ImageContainer
