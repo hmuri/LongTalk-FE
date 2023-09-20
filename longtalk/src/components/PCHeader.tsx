@@ -12,6 +12,7 @@ const PCHeaderBox = styled.div`
   position: fixed;
   top: 30px;
   background-image: url(${PCHeaderImg});
+  z-index: 5;
   @media ${(props) => props.theme.mobile} {
     display: none;
   }

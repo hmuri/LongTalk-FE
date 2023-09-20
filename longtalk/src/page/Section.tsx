@@ -5,6 +5,7 @@ import MobileNav from "../components/MobileNav";
 import MobileSection from "../components/MobileSection";
 import PCHeader from "../components/PCHeader";
 import MobileSectionImg from "../assets/image/MobileSection.png";
+import PCSection from "../components/PCSection";
 
 export default function Section() {
   return (
@@ -15,6 +16,7 @@ export default function Section() {
       <MobileHeader />
       <MobileSectionImgBox src={MobileSectionImg} />
       <MobileSection />
+      <PCSection />
     </Container>
   );
 }
