@@ -10,10 +10,8 @@ export default function PCSection() {
   const handlePuzzleClick = (id: string) => {
     if (activePuzzle === id) {
       setActivePuzzle("");
-      console.log(id);
     } else {
       setActivePuzzle(id);
-      console.log(id);
     }
   };
   return (
