@@ -4,17 +4,61 @@ import ArrowBottom from "../assets/icon/ArrowBottom.png";
 import MenuIcon from "../assets/icon/Menu.png";
 import { useRecoilState } from "recoil";
 import { menuActive } from "../recoil";
+import { Link } from "react-router-dom";
 
 export default function MobileNav() {
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useRecoilState<boolean>(menuActive);
 
-  const navItems: { [key: string]: string[] } = {
-    영화제: ["개최개요", "페스티벌 아이덴티티"],
-    섹션: ["발단", "위기", "절정", "결말"],
-    "상영/예매": ["상영시간표", "예매페이지", "관람유의사항", "온라인상영"],
-    이벤트: ["행사일정표", "이벤트참여"],
-    "페스티벌 가이드": ["이용안내", "공지사항", "FAQ"],
+  const navItems: {
+    [key: string]: {
+      label: string;
+      link?: string;
+      alertMessage?: string;
+      subItems?: { label: string; link: string }[];
+    };
+  } = {
+    영화제: {
+      label: "영화제",
+      subItems: [
+        { label: "개최개요", link: "/holdinfo" },
+        { label: "페스티벌 아이덴티티", link: "/identity" },
+      ],
+    },
+    섹션: {
+      label: "섹션",
+      subItems: [
+        { label: "발단", link: "/section" },
+        { label: "위기", link: "/section" },
+        { label: "절정", link: "/section" },
+        { label: "결말", link: "/section" },
+      ],
+    },
+    "상영/예매": {
+      label: "상영/예매",
+      alertMessage: "11월 초 오픈 예정입니다.",
+    },
+    이벤트: {
+      label: "이벤트",
+      alertMessage: "11월 초 오픈 예정입니다.",
+    },
+    "페스티벌 가이드": {
+      label: "페스티벌 가이드",
+      subItems: [
+        { label: "이용안내", link: "/guide" },
+        { label: "공지사항", link: "/notice" },
+        { label: "FAQ", link: "/faq" },
+      ],
+    },
+  };
+
+  const handleMainItemClick = (mainItem: string) => {
+    const item = navItems[mainItem];
+    if (item.alertMessage) {
+      alert(item.alertMessage);
+    } else {
+      setSelectedItem(mainItem === selectedItem ? null : mainItem);
+    }
   };
 
   useEffect(() => {
@@ -43,11 +87,6 @@ export default function MobileNav() {
     console.log("close");
   };
 
-  const handleMainItemClick = (mainItem: string) => {
-    setSelectedItem((prev) => (prev === mainItem ? null : mainItem));
-    console.log(mainItem);
-  };
-
   return (
     <>
       <MenuIconBox onClick={handleMenuOpenClick} />
@@ -67,24 +106,32 @@ export default function MobileNav() {
                       backgroundColor: "black",
                       zIndex: "50",
                     }}
-                    onClick={() => handleMainItemClick(mainItem)}
                   >
-                    <HeaderBtn>{mainItem}</HeaderBtn>
+                    <HeaderBtn onClick={() => handleMainItemClick(mainItem)}>
+                      {mainItem}
+                    </HeaderBtn>
                     <ArrowBox />
                   </div>
 
                   <SubHeaderContainer active={selectedItem === mainItem}>
                     {selectedItem === mainItem && (
                       <div style={{ display: "flex", flexDirection: "column" }}>
-                        {navItems[selectedItem].map((subItem, index) => (
-                          <SubHeader
-                            key={subItem}
-                            delay={`${index * 0.2}s`}
-                            active={true}
-                          >
-                            {subItem}
-                          </SubHeader>
-                        ))}
+                        {navItems[selectedItem].subItems?.map(
+                          (subItem, index) => (
+                            <Link
+                              to={subItem.link}
+                              onClick={handleMenuCloseClick}
+                            >
+                              <SubHeader
+                                key={subItem.label}
+                                delay={`${index * 0.2}s`}
+                                active={true}
+                              >
+                                {subItem.label}
+                              </SubHeader>
+                            </Link>
+                          )
+                        )}
                       </div>
                     )}
                   </SubHeaderContainer>

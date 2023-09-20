@@ -84,19 +84,21 @@ export default function Nav() {
             }}
           >
             {navItems[selectedItem].subItems?.map((subItem, index) => (
-              <SubHeader
-                key={subItem.label}
-                active={true}
-                delay={`${index * 0.2}s`}
-                style={{
-                  borderBottom:
-                    index !== navItems[selectedItem].subItems!.length - 1
-                      ? "1px solid white"
-                      : "none",
-                }}
-              >
-                {subItem.label}
-              </SubHeader>
+              <Link to={subItem.link}>
+                <SubHeader
+                  key={subItem.label}
+                  active={true}
+                  delay={`${index * 0.2}s`}
+                  style={{
+                    borderBottom:
+                      index !== navItems[selectedItem].subItems!.length - 1
+                        ? "1px solid white"
+                        : "none",
+                  }}
+                >
+                  {subItem.label}
+                </SubHeader>
+              </Link>
             ))}
           </div>
         )}
