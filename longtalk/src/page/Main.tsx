@@ -36,9 +36,9 @@ const Container = styled.div<{ isActive: boolean }>`
   width: 100%;
   height: 100%;
   background: radial-gradient(
-    153.24% 134.93% at 55.76% 37.06%,
-    #f1ab85 30.21%,
-    #e45914 100%
+    146.75% 123.36% at 55.76% 37.06%,
+    #efeae1 37.67%,
+    #f1ab85 100%
   );
 `;
 
