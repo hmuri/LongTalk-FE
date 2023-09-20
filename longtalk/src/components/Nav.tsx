@@ -2,21 +2,62 @@ import { useState } from "react";
 import styled from "styled-components";
 import Circle from "../assets/svg/Circle";
 
+import { Link } from "react-router-dom";
+
 export default function Nav() {
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
-  const navItems: { [key: string]: string[] } = {
-    영화제: ["개최개요", "페스티벌 아이덴티티"],
-    섹션: ["발단", "위기", "절정", "결말"],
-    "상영/예매": ["상영시간표", "예매페이지", "관람유의사항", "온라인상영"],
-    이벤트: ["행사일정표", "이벤트참여"],
-    "페스티벌 가이드": ["이용안내", "공지사항", "FAQ"],
+
+  const navItems: {
+    [key: string]: {
+      label: string;
+      link?: string;
+      alertMessage?: string;
+      subItems?: { label: string; link: string }[];
+    };
+  } = {
+    영화제: {
+      label: "영화제",
+      subItems: [
+        { label: "개최개요", link: "/holdinfo" },
+        { label: "페스티벌 아이덴티티", link: "/identity" },
+      ],
+    },
+    섹션: {
+      label: "섹션",
+      subItems: [
+        { label: "발단", link: "/section" },
+        { label: "위기", link: "/section" },
+        { label: "절정", link: "/section" },
+        { label: "결말", link: "/section" },
+      ],
+    },
+    "상영/예매": {
+      label: "상영/예매",
+      alertMessage: "11월 초 오픈 예정입니다.",
+    },
+    이벤트: {
+      label: "이벤트",
+      alertMessage: "11월 초 오픈 예정입니다.",
+    },
+    "페스티벌 가이드": {
+      label: "페스티벌 가이드",
+      subItems: [
+        { label: "이용안내", link: "/guide" },
+        { label: "공지사항", link: "/notice" },
+        { label: "FAQ", link: "/faq" },
+      ],
+    },
   };
+
   const handleMainItemClick = (mainItem: string) => {
-    console.log(mainItem);
-    mainItem == selectedItem
-      ? setSelectedItem(null)
-      : setSelectedItem(mainItem);
+    const item = navItems[mainItem];
+    if (item.alertMessage) {
+      alert(item.alertMessage);
+    } else {
+      setSelectedItem(mainItem === selectedItem ? null : mainItem);
+    }
   };
+
   return (
     <Container isDisabled={selectedItem == null}>
       <div style={{ width: "100%", display: "flex", flexDirection: "column" }}>
@@ -28,7 +69,7 @@ export default function Nav() {
             >
               {mainItem}
               <CircleContainer
-                style={{ display: mainItem == selectedItem ? "flex" : "none" }}
+                style={{ display: mainItem === selectedItem ? "flex" : "none" }}
               >
                 <Circle />
               </CircleContainer>
@@ -42,19 +83,19 @@ export default function Nav() {
               flexDirection: "column",
             }}
           >
-            {navItems[selectedItem].map((subItem, index) => (
+            {navItems[selectedItem].subItems?.map((subItem, index) => (
               <SubHeader
-                key={subItem}
+                key={subItem.label}
                 active={true}
                 delay={`${index * 0.2}s`}
                 style={{
                   borderBottom:
-                    index !== navItems[selectedItem].length - 1
+                    index !== navItems[selectedItem].subItems!.length - 1
                       ? "1px solid white"
                       : "none",
                 }}
               >
-                {subItem}
+                {subItem.label}
               </SubHeader>
             ))}
           </div>
@@ -63,6 +104,8 @@ export default function Nav() {
     </Container>
   );
 }
+
+// 이하 styled-components 선언은 동일
 
 const Container = styled.div<{ isDisabled: boolean }>`
   width: 50%;
