@@ -89,7 +89,7 @@ const MenuTitle = styled.div`
   height: 29px;
   position: relative;
   top: 20%;
-  left: 3%;
+  left: 10%;
   padding: 7px 1%;
   justify-content: center;
   align-items: center;
