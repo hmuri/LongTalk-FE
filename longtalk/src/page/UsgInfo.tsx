@@ -90,10 +90,10 @@ const MenuContainer = styled.div`
   flex-direction: column;
   width: 100%;
   top: 20%;
-  padding-top: 3%;
   border: 1px solid black;
   background-color: #afbfdb;
-  z-index: 5;
+  padding-bottom: 50px;
+  z-index: 7;
 `;
 
 const ContentContainer = styled.div`
@@ -101,8 +101,11 @@ const ContentContainer = styled.div`
   flex-direction: column;
   width: 70%;
   margin: auto;
-  padding: 3% 0;
+  padding: 4% 0;
   border-bottom: 1px solid black;
+  @media ${(props) => props.theme.mobile} {
+    padding: 8% 0;
+  }
 `;
 
 const Title = styled.div`
@@ -112,11 +115,15 @@ const Title = styled.div`
   font-style: normal;
   font-weight: 600;
   line-height: 42px;
+  @media ${(props) => props.theme.mobile} {
+    font-size: 23px;
+  }
 `;
 
 const MapContainer = styled.div`
   display: flex;
   width: 100%;
   height: 400px;
+  margin-top: 10px;
   background-color: orange;
 `;
