@@ -5,13 +5,13 @@ import LogoImg from "../assets/image/Logo.png";
 import LongImg from "../assets/image/Long.png";
 import TalkImg from "../assets/image/talk.png";
 import SubmitPage from "../components/SubmitPage";
-import { useRecoilValue } from "recoil";
-import { menuActive } from "../recoil";
+import { useRecoilValue, useRecoilState } from "recoil";
+import { menuActive, submitActiveState } from "../recoil";
 import { useState } from "react";
 
 export default function Main() {
   const isActive = useRecoilValue(menuActive);
-  const [submitActive, setSubmitActive] = useState(false);
+  const [submitActive, setSubmitActive] = useRecoilState(submitActiveState);
   const handleSubmitPage = () => {
     console.log(submitActive);
     setSubmitActive(true);
@@ -27,7 +27,7 @@ export default function Main() {
       <SubmitBtn isActive={isActive} onClick={handleSubmitPage}>
         영화 출품하기
       </SubmitBtn>
-      <SubmitPage submitActive={submitActive} />
+      <SubmitPage />
     </Container>
   );
 }

@@ -55,6 +55,9 @@ export default function Notice1() {
         ☑️ 결과 발표 : 10월 23일(월) 르포(REPORTAGE) SNS 및 온라인 영화제
         페이지(링크) 업로드 및 선정 작품 한정 출품자 개별 연락
       </p>
+      <br />
+      <br />
+      <br />
     </div>
   );
 }
