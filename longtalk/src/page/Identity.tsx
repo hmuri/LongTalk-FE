@@ -4,6 +4,7 @@ import PCHeader from "../components/PCHeader";
 import MobileHeader from "../components/MobileHeader";
 import MobileNav from "../components/MobileNav";
 import Nav from "../components/Nav";
+import MobileIdt from "../components/MobileIdt";
 import Identity1 from "../assets/image/IdentitySlider/Identity1.png";
 import Identity2 from "../assets/image/IdentitySlider/Identity2.png";
 import Identity3 from "../assets/image/IdentitySlider/Identity3.png";
@@ -21,7 +22,7 @@ const SliderContainer = styled.div`
   margin: auto;
   margin-bottom: 10%;
   @media ${(props) => props.theme.mobile} {
-    margin-bottom: 30%;
+    display: none;
   }
 `;
 
@@ -49,6 +50,9 @@ const Button = styled.button`
   position: fixed;
   right: 5%;
   top: 50%;
+  @media ${(props) => props.theme.mobile} {
+    display: none;
+  }
 `;
 
 const images = [
@@ -86,6 +90,7 @@ export default function Identity() {
       <PCHeader />
       <MobileHeader />
       <MobileNav />
+      <MobileIdt />
       <>
         <SliderContainer>
           <ImageContainer
