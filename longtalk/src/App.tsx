@@ -28,7 +28,7 @@ function App() {
         <Route path="/notice" element={<Notice />} />
         <Route path="/holdInfo" element={<HoldInfo />} />
         <Route path="/identity" element={<Identity />} />
-        <Route path="/info" element={<UsgInfo />} />
+        <Route path="/guide" element={<UsgInfo />} />
       </Routes>
     </Container>
   );
