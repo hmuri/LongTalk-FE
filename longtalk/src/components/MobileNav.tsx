@@ -5,6 +5,7 @@ import MenuIcon from "../assets/icon/Menu.png";
 import { useRecoilState } from "recoil";
 import { menuActive } from "../recoil";
 import { Link } from "react-router-dom";
+import CloseSquare from "../assets/icon/Close_square.png";
 
 export default function MobileNav() {
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
@@ -52,6 +53,10 @@ export default function MobileNav() {
     },
   };
 
+  const handleClose = () => {
+    setMenuOpen(false);
+  };
+
   const handleMainItemClick = (mainItem: string) => {
     const item = navItems[mainItem];
     if (item.alertMessage) {
@@ -90,12 +95,16 @@ export default function MobileNav() {
       <MenuIconBox onClick={handleMenuOpenClick} />
       <Container menuOpen={menuOpen}>
         <MenuContainer data-menu-container menuOpen={menuOpen}>
+          <CloseButton onClick={handleClose} src={CloseSquare} />
           <div
             style={{ width: "100%", display: "flex", flexDirection: "column" }}
           >
             <Header>
               {Object.keys(navItems).map((mainItem) => (
-                <HeaderBox key={mainItem}>
+                <HeaderBox
+                  key={mainItem}
+                  onClick={() => handleMainItemClick(mainItem)}
+                >
                   <div
                     style={{
                       display: "flex",
@@ -105,9 +114,7 @@ export default function MobileNav() {
                       zIndex: "50",
                     }}
                   >
-                    <HeaderBtn onClick={() => handleMainItemClick(mainItem)}>
-                      {mainItem}
-                    </HeaderBtn>
+                    <HeaderBtn>{mainItem}</HeaderBtn>
                     <ArrowBox />
                   </div>
 
@@ -173,12 +180,22 @@ const MenuIconBox = styled.div`
   z-index: 7;
 `;
 
+const CloseButton = styled.img`
+  position: fixed;
+  top: 3%;
+  right: 5%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  z-index: 51;
+`;
+
 const MenuContainer = styled.div<{ menuOpen: boolean }>`
   display: flex;
   flex-direction: column;
   width: 244px;
   height: calc(100vh - 7%);
-  padding: 35px 18px;
+  padding: 45px 18px;
   position: fixed;
   right: 0px;
   top: 7%;
@@ -234,7 +251,7 @@ const ArrowBox = styled.div`
 
 const SubHeaderContainer = styled.div<{ active: boolean }>`
   overflow: hidden;
-  width: calc(100% - 15px);
+  width: calc(100% - 70px);
   padding-left: 15px;
 
   transform: ${(props) =>
