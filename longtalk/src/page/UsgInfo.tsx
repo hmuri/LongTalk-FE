@@ -78,7 +78,7 @@ const MenuTitle = styled.div`
   height: 29px;
   position: relative;
   margin-top: 15%;
-  left: 10%;
+  left: 15%;
   padding: 7px 1%;
   justify-content: center;
   align-items: center;
@@ -88,6 +88,7 @@ const MenuTitle = styled.div`
   background-color: #afbfdb;
   @media ${(props) => props.theme.mobile} {
     top: 8%;
+    width: 120px;
   }
 `;
 
@@ -104,6 +105,7 @@ const MenuContainer = styled.div`
   z-index: 7;
   @media ${(props) => props.theme.mobile} {
     top: 7.5%;
+    width: 100vw;
 
   }
 `;

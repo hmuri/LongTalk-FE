@@ -7,10 +7,11 @@ export default function Footer() {
 
 const Container = styled.div`
   position: relative;
+  bottom: 0;
   margin-bottom: 0;
   margin-top: auto;
   display: flex;
-  width: 1800;
+  width: 100vw;
   height: 200px;
   @media ${(props) => props.theme.mobile} {
     display: none;
