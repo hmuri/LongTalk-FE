@@ -9,6 +9,7 @@ import HoldInfo1 from "../assets/image/HoldSlider/HoldInfo1.png";
 import HoldInfo2 from "../assets/image/HoldSlider/HoldInfo2.png";
 import HoldInfo3 from "../assets/image/HoldSlider/HoldInfo3.png";
 import HoldInfo4 from "../assets/image/HoldSlider/HoldInfo4.png";
+import Footer from "../components/Footer";
 
 //시간 남으면 스트라이프로 바꾸기
 
@@ -17,8 +18,7 @@ const SliderContainer = styled.div`
   overflow: hidden;
   width: 80%;
   height: 65%;
-  margin: auto;
-  margin-bottom: 10%;
+  margin: 10% auto auto auto;
   @media ${(props) => props.theme.mobile} {
     display: none;
   }
@@ -90,6 +90,7 @@ export default function HoldInfo() {
         </SliderContainer>
         <Button onClick={nextSlide}>Next</Button>
       </>
+      <Footer />
     </Container>
   );
 }

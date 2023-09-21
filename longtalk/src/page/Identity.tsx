@@ -13,14 +13,14 @@ import Identity5 from "../assets/image/IdentitySlider/Identity5.png";
 import Identity6 from "../assets/image/IdentitySlider/Identity6.png";
 import Identity7 from "../assets/image/IdentitySlider/Identity7.png";
 import Identity8 from "../assets/image/IdentitySlider/Identity8.png";
+import Footer from "../components/Footer";
 
 const SliderContainer = styled.div`
   display: flex;
   overflow: hidden;
   width: 80%;
   height: 65%;
-  margin: auto;
-  margin-bottom: 10%;
+  margin: 10% auto auto auto;
   @media ${(props) => props.theme.mobile} {
     display: none;
   }
@@ -110,6 +110,7 @@ export default function Identity() {
         </SliderContainer>
         <Button onClick={nextSlide}>Next</Button>
       </>
+      <Footer />
     </Container>
   );
 }

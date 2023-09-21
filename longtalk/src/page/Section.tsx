@@ -6,6 +6,7 @@ import MobileSection from "../components/MobileSection";
 import PCHeader from "../components/PCHeader";
 import MobileSectionImg from "../assets/image/MobileSection.png";
 import PCSection from "../components/PCSection";
+import Footer from "../components/Footer";
 
 export default function Section() {
   return (
