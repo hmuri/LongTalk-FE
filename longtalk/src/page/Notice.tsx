@@ -61,6 +61,7 @@ export default function Notice() {
                       <ContentTitle>{navItems[mainItem][0]} </ContentTitle>
                       <ContentDate>{navItems[mainItem][1]}</ContentDate>
                     </div>
+                    <ContentMbDate>{navItems[mainItem][1]}</ContentMbDate>
                     <br />
                     <div />
                     {selectedItem === mainItem ? null : (
@@ -122,8 +123,8 @@ const MenuContainer = styled.div`
   height: calc(85% - 45px);
   overflow: auto;
   @media ${(props) => props.theme.mobile} {
-    top: 20%;
     position: relative;
+    top: 8%;
   }
 `;
 
@@ -157,6 +158,12 @@ const HeaderBtn = styled.button`
   cursor: pointer;
   width: 100%;
 
+  @media ${(props) => props.theme.mobile} {
+    padding: 2% 5%;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
   font-family: Pretendard Variable;
   font-size: 22px;
   font-style: normal;
@@ -178,13 +185,34 @@ const ContentNumber = styled.div`
 const ContentTitle = styled.div`
   display: flex;
   flex: 0.6;
+  @media ${(props) => props.theme.mobile} {
+    flex: 0.9;
+    justify-content: right;
+  }
 `;
 
 const ContentDate = styled.div`
   display: flex;
   flex: 0.3;
   text-align: right;
+  font-size: 22px;
   justify-content: right;
+  @media ${(props) => props.theme.mobile} {
+    display: none;
+  }
+`;
+const ContentMbDate = styled.div`
+  display: none;
+
+  @media ${(props) => props.theme.mobile} {
+    display: flex;
+    width: 100%;
+    flex: 0.3;
+    text-align: right;
+    justify-content: right;
+    font-size: 13px;
+    font-weight: 400;
+  }
 `;
 
 const ContentShort = styled.div`
@@ -195,6 +223,11 @@ const ContentShort = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 35px;
+  @media ${(props) => props.theme.mobile} {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 23px;
+  }
 `;
 
 const SubHeaderContainer = styled.div<{ active: boolean }>`
@@ -208,5 +241,8 @@ const SubHeaderContainer = styled.div<{ active: boolean }>`
   max-height: ${(props) => (props.active ? "100%" : "0")};
   @media ${(props) => props.theme.mobile} {
     top: 20%;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 90%;
   }
 `;

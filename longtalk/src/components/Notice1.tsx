@@ -5,7 +5,7 @@ export default function Notice1() {
   return (
     <div>
       <br />
-      <h1>제1회 소통영화제 「롱톡」 안내</h1>
+      <h2>제1회 소통영화제 「롱톡」 안내</h2>
       <br />
       <Text>
         <p>
@@ -35,7 +35,7 @@ export default function Notice1() {
           함께 목소리를 낼 여러분의 많은 관심과 참여 부탁드립니다.
         </p>
         <br />
-        <b>💬 출품작 자격 및 장르 : </b> 다음 조건들을 만족시켜야 함.
+        <b>💬 출품작 자격 및 장르 </b> <div>다음 조건들을 만족시켜야 함.</div>
         <ul>
           <li>러닝타임: 30분 이내의 단편영화</li>
           <li>장르: 극영화, 다큐멘터리</li>
@@ -44,7 +44,6 @@ export default function Notice1() {
             다음 키워드들과 연관 지을 수 있는 영화: 소통, 조명, 연결, 이야기
           </li>
         </ul>
-        <br />
         <p>
           <b>💬 지원서 링크 : </b>
           <a href="https://forms.gle/YYD2PaVN6H2X7XaR8">
