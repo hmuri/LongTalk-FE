@@ -12,6 +12,7 @@ import Identity4 from "../assets/image/IdentitySlider/Identity4.png";
 import Identity5 from "../assets/image/IdentitySlider/Identity5.png";
 import Identity6 from "../assets/image/IdentitySlider/Identity6.png";
 import Identity7 from "../assets/image/IdentitySlider/Identity7.png";
+import MainMotion from "../assets/MainMotion.gif";
 import Identity8 from "../assets/image/IdentitySlider/Identity8.png";
 import ArrowRight from "../assets/icon/ArrowRight.png";
 import ArrowLeft from "../assets/icon/ArrowLeft.png";
@@ -21,7 +22,7 @@ const SliderContainer = styled.div`
   display: flex;
   overflow: hidden;
   width: 80%;
-  height: 65%;
+  height: auto;
   margin: 10% auto auto auto;
   @media ${(props) => props.theme.mobile} {
     display: none;
@@ -40,9 +41,10 @@ const Image = styled.img<{
   index: number;
 }>`
   width: 100%;
-  height: 100%;
+  height: auto%;
+  border: none;
   margin-right: ${(props) =>
-    props.isMain ? props.marginRight : props.index == 5 ? "-10%" : "0%"};
+    props.isMain ? props.marginRight : props.index == 6 ? "-20%" : "0%"};
 `;
 
 const Button = styled.button<{ backgroundImage: string }>`
@@ -68,6 +70,7 @@ const images = [
   Identity3,
   Identity4,
   Identity5,
+  MainMotion,
   Identity6,
   Identity7,
   Identity8,
@@ -75,13 +78,14 @@ const images = [
 
 export default function Identity() {
   const marginRightValues = [
-    "0%",
+    "-10%",
     "0%",
     "-15%",
-    "-8%",
-    "-20%",
-    "-30%",
     "0%",
+    "-10%",
+    "0%",
+    "-30%",
+    "10%",
     "0%",
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
