@@ -2,14 +2,11 @@ import styled from "styled-components";
 import Nav from "../components/Nav";
 import MobileNav from "../components/MobileNav";
 import LogoImg from "../assets/image/Logo.png";
-import LongImg from "../assets/image/Long.png";
-import TalkImg from "../assets/image/talk.png";
 import SubmitPage from "../components/SubmitPage";
 import MainMotion from "../assets/MainMotion.gif";
 import MobileMain from "../assets/MobileMain.gif";
 import { useRecoilValue, useRecoilState } from "recoil";
 import { menuActive, submitActiveState } from "../recoil";
-import { useState } from "react";
 
 export default function Main() {
   const isActive = useRecoilValue(menuActive);
