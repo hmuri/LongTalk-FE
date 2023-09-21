@@ -5,6 +5,8 @@ import LogoImg from "../assets/image/Logo.png";
 import LongImg from "../assets/image/Long.png";
 import TalkImg from "../assets/image/talk.png";
 import SubmitPage from "../components/SubmitPage";
+import MainMotion from "../assets/MainMotion.gif";
+import MobileMain from "../assets/MobileMain.gif";
 import { useRecoilValue, useRecoilState } from "recoil";
 import { menuActive, submitActiveState } from "../recoil";
 import { useState } from "react";
@@ -19,11 +21,11 @@ export default function Main() {
 
   return (
     <Container isActive={isActive}>
+      <MotionImg src={MainMotion} />
       <Nav />
       <MobileNav />
       <LogoBox />
-      <MobileLongBox />
-      <MobileTalkBox />
+      <MobileMotion src={MobileMain} />
       <SubmitBtn isActive={isActive} onClick={handleSubmitPage}>
         영화 출품하기
       </SubmitBtn>
@@ -40,6 +42,27 @@ const Container = styled.div<{ isActive: boolean }>`
     #efeae1 37.67%,
     #f1ab85 100%
   );
+`;
+
+const MotionImg = styled.img`
+  width: 100vw;
+  height: 90%;
+  position: fixed;
+  bottom: 0;
+
+  @media ${(props) => props.theme.mobile} {
+    display: none;
+  }
+`;
+
+const MobileMotion = styled.img`
+  display: none;
+  @media ${(props) => props.theme.mobile} {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+  }
 `;
 
 const LogoBox = styled.div`
