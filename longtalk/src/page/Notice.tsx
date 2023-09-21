@@ -6,6 +6,7 @@ import Notice1 from "../components/Notice1";
 import MobileHeader from "../components/MobileHeader";
 import MobileNav from "../components/MobileNav";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 export default function Notice() {
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
@@ -55,6 +56,7 @@ export default function Notice() {
                         " " +
                         navItems[mainItem][1]}
                     </p>
+                    <br />
                     <p />
                     {selectedItem === mainItem ? null : (
                       <p>{navItems[mainItem][3]}</p>
@@ -71,6 +73,7 @@ export default function Notice() {
           </Header>
         </div>
       </MenuContainer>
+      <Footer />
     </Container>
   );
 }
@@ -87,9 +90,13 @@ const MenuTitle = styled.div`
   display: flex;
   width: 137px;
   height: 29px;
-  position: relative;
-  top: 20%;
-  left: 10%;
+
+  margin-top: 15%;
+  @media ${(props) => props.theme.mobile} {
+    top: 20%;
+    position: relative;
+  }
+  margin-left: 10%;
   padding: 7px 1%;
   justify-content: center;
   align-items: center;
@@ -106,16 +113,19 @@ const MenuContainer = styled.div`
   flex-wrap: wrap;
   width: 100%;
   /*poistion: fixed;*/ //미친 얘때문에 안되는 거였어 미친미친 킹받아 미친 왜 이걸 못봤지 아놔아놔
-  top: 20%;
   border-radius: 4px;
   background-color: #afbfdb;
   z-index: 20;
+  @media ${(props) => props.theme.mobile} {
+    top: 20%;
+  }
 `;
 
 const Header = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding: auto 2%;
   justify-content: space-between;
   z-index: 5;
 `;
@@ -125,6 +135,7 @@ const HeaderBox = styled.div`
   position: relative;
   flex-direction: column;
   width: 100%;
+  padding: auto 2%;
   border: solid 1px black;
 `;
 
@@ -133,6 +144,7 @@ const HeaderBtn = styled.button`
   flex-direction: row;
   background: none;
   border: none;
+  padding: auto 2%;
   color: black;
   font-size: 17px;
   font-style: normal;
@@ -146,6 +158,8 @@ const HeaderBtn = styled.button`
 `;
 
 const SubHeaderContainer = styled.div<{ active: boolean }>`
+  display: flex;
+  position: relative;
   width: calc(100% - 15px);
   background-color: #afbfdb;
   padding-left: 15px;
@@ -153,4 +167,7 @@ const SubHeaderContainer = styled.div<{ active: boolean }>`
 
   transition: transform 0.3s ease-in-out, max-height 0.3s ease-in-out;
   max-height: ${(props) => (props.active ? "100%" : "0")};
+  @media ${(props) => props.theme.mobile} {
+    top: 20%;
+  }
 `;
