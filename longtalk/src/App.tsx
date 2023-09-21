@@ -7,6 +7,7 @@ import Notice from "./page/Notice";
 import HoldInfo from "./page/HoldInfo";
 import Identity from "./page/Identity";
 import UsgInfo from "./page/UsgInfo";
+import FAQ from "./page/FAQ";
 import { useRecoilValue } from "recoil";
 import { menuActive } from "./recoil";
 
@@ -29,6 +30,7 @@ function App() {
         <Route path="/holdInfo" element={<HoldInfo />} />
         <Route path="/identity" element={<Identity />} />
         <Route path="/guide" element={<UsgInfo />} />
+        <Route path="/faq" element={<FAQ />} />
       </Routes>
     </Container>
   );
