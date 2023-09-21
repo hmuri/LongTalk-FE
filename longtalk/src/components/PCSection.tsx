@@ -3,6 +3,7 @@ import Puzzle1 from "../assets/image/Puzzle/Puzzle1.png";
 import Puzzle2 from "../assets/image/Puzzle/Puzzle2.png";
 import Puzzle3 from "../assets/image/Puzzle/Puzzle3.png";
 import Puzzle4 from "../assets/image/Puzzle/Puzzle4.png";
+import Footer from "./Footer";
 import { useState } from "react";
 
 export default function PCSection() {
@@ -50,6 +51,7 @@ export default function PCSection() {
           </BlackBox4>
         </ColorBox>
       </div>
+      <Footer />
     </Container>
   );
 }
@@ -78,7 +80,7 @@ const ColorBox = styled.div`
 const PuzzleBox1 = styled.div<{ isActive: boolean }>`
   display: flex;
   position: relative;
-  width: 50%;
+  width: calc(50% + 3px);
   height: 250px;
   left: ${(props) => (props.isActive ? "50%" : "0")};
   transition: left 0.3s ease-in-out;
@@ -88,6 +90,7 @@ const PuzzleBox1 = styled.div<{ isActive: boolean }>`
 
 const BlackBox1 = styled.div<{ isActive: boolean }>`
   position: relative;
+  left: -1px;
   display: flex;
   width: 50%;
   height: 250px;
@@ -111,7 +114,7 @@ const PuzzleBox2 = styled.div<{ isActive: boolean }>`
   position: relative;
   width: calc(50% + 60px);
   height: 285px;
-  top: -3px;
+  top: -2px;
   left: ${(props) => (props.isActive ? "calc(50%)" : "-7px")};
   transition: left 0.3s ease-in-out;
   background-image: url(${Puzzle2});
