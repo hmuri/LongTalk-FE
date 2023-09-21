@@ -9,6 +9,8 @@ import HoldInfo1 from "../assets/image/HoldSlider/HoldInfo1.png";
 import HoldInfo2 from "../assets/image/HoldSlider/HoldInfo2.png";
 import HoldInfo3 from "../assets/image/HoldSlider/HoldInfo3.png";
 import HoldInfo4 from "../assets/image/HoldSlider/HoldInfo4.png";
+import ArrowRight from "../assets/icon/ArrowRight.png";
+import ArrowLeft from "../assets/icon/ArrowLeft.png";
 import Footer from "../components/Footer";
 
 //시간 남으면 스트라이프로 바꾸기
@@ -36,13 +38,18 @@ const Image = styled.img<{ marginRight: string; isMain: boolean }>`
   margin-right: ${(props) => (props.isMain ? props.marginRight : "0%")};
 `;
 
-const Button = styled.button`
+const Button = styled.button<{ backgroundImage: string }>`
   display: flex;
-  width: 10px;
-  height: 10px;
+  width: 50px;
+  height: 50px;
   position: fixed;
   right: 5%;
-  top: 50%;
+  top: 45%;
+  border: none;
+  border-radius: 100%;
+  background-image: url(${(props) => props.backgroundImage});
+  background-size: cover;
+  background-color: none;
   @media ${(props) => props.theme.mobile} {
     display: none;
   }
@@ -88,7 +95,12 @@ export default function HoldInfo() {
             ))}
           </ImageContainer>
         </SliderContainer>
-        <Button onClick={nextSlide}>Next</Button>
+        <Button
+          onClick={nextSlide}
+          backgroundImage={
+            currentIndex === images.length - 1 ? ArrowLeft : ArrowRight
+          }
+        />
       </>
       <Footer />
     </Container>
