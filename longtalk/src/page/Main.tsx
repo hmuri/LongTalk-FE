@@ -78,42 +78,14 @@ const LogoBox = styled.div`
   }
 `;
 
-const MobileLongBox = styled.div`
-  display: none;
-  @media ${(props) => props.theme.mobile} {
-    display: flex;
-    width: 270px;
-    height: 53%;
-    background-size: cover;
-    background-position: bottom;
-    position: fixed;
-    left: 10%;
-    background-image: url(${LongImg});
-  }
-`;
-const MobileTalkBox = styled.div`
-  display: none;
-  @media ${(props) => props.theme.mobile} {
-    display: flex;
-    width: 169px;
-    height: 83px;
-    background-size: cover;
-    position: fixed;
-    top: 55%;
-    left: 50%;
-    background-position: bottom;
-    background-image: url(${TalkImg});
-  }
-`;
-
 const SubmitBtn = styled.div<{ isActive: boolean }>`
   position: fixed;
   bottom: 15%;
-  left: calc(25% - 110px);
+  left: calc(25% - 50px);
   display: flex;
   width: 50%;
   height: 25px;
-  padding: 25px 110px;
+  padding: 15px 50px;
   justify-content: center;
   color: white;
   align-items: center;
@@ -129,7 +101,7 @@ const SubmitBtn = styled.div<{ isActive: boolean }>`
     width: 160px;
     height: 3px;
     padding: 25px 70px;
-    left: calc(25% - 55px);
+    left: calc(25% - 35px);
     font-size: 22px;
     font-style: normal;
     font-weight: 400;
