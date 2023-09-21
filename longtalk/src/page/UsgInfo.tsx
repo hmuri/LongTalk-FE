@@ -6,6 +6,7 @@ import Notice1 from "../components/Notice1";
 import MobileHeader from "../components/MobileHeader";
 import MobileNav from "../components/MobileNav";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 export default function UsgInfo() {
   return (
@@ -14,48 +15,51 @@ export default function UsgInfo() {
       <PCHeader />
       <MobileHeader />
       <MobileNav />
-      <MenuTitle>이용안내</MenuTitle>
-      <MenuContainer>
-        <ContentContainer>
-          <Title>행사공간</Title>
-          <div>
-            <p style={{ margin: "20px 0px 6px 0px" }}>
-              KT&G 상상마당 홍대 오시는 길
-            </p>
-            <p style={{ margin: "6px 0px" }}>
-              (04042) 서울시 마포구 어울마당로 65 (서교동) KT&G 상상마당
-            </p>
-            <p style={{ margin: "6px 0px" }}>02-330-6200</p>
-            <p style={{ margin: "6px 0px" }}>planet@sangsangmadang.com</p>
-          </div>
-          <MapContainer />
-        </ContentContainer>
-        <ContentContainer>
-          <Title>교통수단</Title>
-          <div>
-            <p style={{ margin: "20px 0px 6px 0px" }}>
-              지하철: 2호선 홍대입구역 9번 출구, 합정역 3번 출구 / 6호선 상수역
-              1번 출구
-            </p>
-            <p style={{ margin: "6px 0px" }}>
-              버스: 마포08번, 마포16번, 7011번
-            </p>
-            <p style={{ margin: "6px 0px" }}>
-              자가용: 서울시 마포구 어울마당로 65(서교동 367-5)로 주소검색 이용
-              부탁드립니다.
-            </p>
-          </div>
-        </ContentContainer>
-        <ContentContainer style={{ border: "none" }}>
-          <Title>주차안내</Title>
-          <div>
-            <p style={{ margin: "6px 0px" }}>
-              상상마당에는 별도의 주차공간이 없습니다. 가급적 대중교통수단을
-              이용하시기 바랍니다.
-            </p>
-          </div>
-        </ContentContainer>
-      </MenuContainer>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <MenuTitle>이용안내</MenuTitle>
+        <MenuContainer>
+          <ContentContainer>
+            <Title>행사공간</Title>
+            <div>
+              <p style={{ margin: "20px 0px 6px 0px" }}>
+                KT&G 상상마당 홍대 오시는 길
+              </p>
+              <p style={{ margin: "6px 0px" }}>
+                (04042) 서울시 마포구 어울마당로 65 (서교동) KT&G 상상마당
+              </p>
+              <p style={{ margin: "6px 0px" }}>02-330-6200</p>
+              <p style={{ margin: "6px 0px" }}>planet@sangsangmadang.com</p>
+            </div>
+            <MapContainer />
+          </ContentContainer>
+          <ContentContainer>
+            <Title>교통수단</Title>
+            <div>
+              <p style={{ margin: "20px 0px 6px 0px" }}>
+                지하철: 2호선 홍대입구역 9번 출구, 합정역 3번 출구 / 6호선
+                상수역 1번 출구
+              </p>
+              <p style={{ margin: "6px 0px" }}>
+                버스: 마포08번, 마포16번, 7011번
+              </p>
+              <p style={{ margin: "6px 0px" }}>
+                자가용: 서울시 마포구 어울마당로 65(서교동 367-5)로 주소검색
+                이용 부탁드립니다.
+              </p>
+            </div>
+          </ContentContainer>
+          <ContentContainer style={{ border: "none" }}>
+            <Title>주차안내</Title>
+            <div>
+              <p style={{ margin: "6px 0px" }}>
+                상상마당에는 별도의 주차공간이 없습니다. 가급적 대중교통수단을
+                이용하시기 바랍니다.
+              </p>
+            </div>
+          </ContentContainer>
+        </MenuContainer>
+        <Footer />
+      </div>
     </Container>
   );
 }
@@ -73,7 +77,7 @@ const MenuTitle = styled.div`
   width: 137px;
   height: 29px;
   position: relative;
-  top: 20%;
+  margin-top: 15%;
   left: 10%;
   padding: 7px 1%;
   justify-content: center;
@@ -82,6 +86,9 @@ const MenuTitle = styled.div`
   border-radius: 16px 16px 0px 0px;
   border-bottom: none;
   background-color: #afbfdb;
+  @media ${(props) => props.theme.mobile} {
+    top: 20%;
+  }
 `;
 
 const MenuContainer = styled.div`
@@ -89,11 +96,16 @@ const MenuContainer = styled.div`
   position: relative;
   flex-direction: column;
   width: 100%;
-  top: 20%;
+  top: 0%;
   border: 1px solid black;
   background-color: #afbfdb;
   padding-bottom: 50px;
+  flex: 1
   z-index: 7;
+  @media ${(props) => props.theme.mobile} {
+    top: 20%;
+
+  }
 `;
 
 const ContentContainer = styled.div`
