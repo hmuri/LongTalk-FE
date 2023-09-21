@@ -87,7 +87,7 @@ const MenuTitle = styled.div`
   border-bottom: none;
   background-color: #afbfdb;
   @media ${(props) => props.theme.mobile} {
-    top: 20%;
+    top: 8%;
   }
 `;
 
@@ -103,7 +103,7 @@ const MenuContainer = styled.div`
   flex: 1
   z-index: 7;
   @media ${(props) => props.theme.mobile} {
-    top: 20%;
+    top: 7.5%;
 
   }
 `;
