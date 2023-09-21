@@ -13,6 +13,8 @@ import Identity5 from "../assets/image/IdentitySlider/Identity5.png";
 import Identity6 from "../assets/image/IdentitySlider/Identity6.png";
 import Identity7 from "../assets/image/IdentitySlider/Identity7.png";
 import Identity8 from "../assets/image/IdentitySlider/Identity8.png";
+import ArrowRight from "../assets/icon/ArrowRight.png";
+import ArrowLeft from "../assets/icon/ArrowLeft.png";
 import Footer from "../components/Footer";
 
 const SliderContainer = styled.div`
@@ -43,13 +45,18 @@ const Image = styled.img<{
     props.isMain ? props.marginRight : props.index == 5 ? "-10%" : "0%"};
 `;
 
-const Button = styled.button`
+const Button = styled.button<{ backgroundImage: string }>`
   display: flex;
-  width: 10px;
-  height: 10px;
+  width: 50px;
+  height: 50px;
   position: fixed;
   right: 5%;
-  top: 50%;
+  top: 45%;
+  border: none;
+  border-radius: 100%;
+  background-image: url(${(props) => props.backgroundImage});
+  background-size: cover;
+  background-color: none;
   @media ${(props) => props.theme.mobile} {
     display: none;
   }
@@ -108,7 +115,12 @@ export default function Identity() {
             ))}
           </ImageContainer>
         </SliderContainer>
-        <Button onClick={nextSlide}>Next</Button>
+        <Button
+          onClick={nextSlide}
+          backgroundImage={
+            currentIndex === images.length - 1 ? ArrowLeft : ArrowRight
+          }
+        />
       </>
       <Footer />
     </Container>

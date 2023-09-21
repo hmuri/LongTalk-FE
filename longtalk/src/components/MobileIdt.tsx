@@ -10,6 +10,8 @@ import mbsec7 from "../assets/image/MbIdtSlider/mbidt7.png";
 import mbsec8 from "../assets/image/MbIdtSlider/mbidt8.png";
 import mbsec9 from "../assets/image/MbIdtSlider/mbidt9.png";
 import mbsec10 from "../assets/image/MbIdtSlider/mbidt10.png";
+import ArrowRight from "../assets/icon/ArrowRight.png";
+import ArrowLeft from "../assets/icon/ArrowLeft.png";
 
 const SliderContainer = styled.div`
   display: none;
@@ -34,15 +36,19 @@ const Image = styled.img<{ marginRight: string; isMain: boolean }>`
   margin-right: ${(props) => (props.isMain ? props.marginRight : "0%")};
 `;
 
-const Button = styled.button`
+const Button = styled.button<{ backgroundImage: string }>`
   display: none;
   @media ${(props) => props.theme.mobile} {
     display: flex;
-    width: 10px;
-    height: 10px;
+    width: 35px;
+    height: 35px;
     position: fixed;
     right: 5%;
     top: 50%;
+    background-image: url(${(props) => props.backgroundImage});
+    background-size: cover;
+    border: none;
+    border-radius: 100%;
   }
 `;
 
@@ -87,7 +93,12 @@ export default function MobileIdt() {
           />
         ))}
       </ImageContainer>
-      <Button onClick={nextSlide}>Next</Button>
+      <Button
+        onClick={nextSlide}
+        backgroundImage={
+          currentIndex === images.length - 1 ? ArrowLeft : ArrowRight
+        }
+      />
     </SliderContainer>
   );
 }
