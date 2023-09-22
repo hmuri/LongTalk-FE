@@ -7,6 +7,7 @@ import MobileHeader from "../components/MobileHeader";
 import MobileNav from "../components/MobileNav";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import KakaoMap from "../KaKaoMap";
 
 export default function UsgInfo() {
   return (
@@ -30,7 +31,7 @@ export default function UsgInfo() {
               <p style={{ margin: "6px 0px" }}>02-330-6200</p>
               <p style={{ margin: "6px 0px" }}>planet@sangsangmadang.com</p>
             </div>
-            <MapContainer />
+            <KakaoMap />
           </ContentContainer>
           <ContentContainer>
             <Title>교통수단</Title>
