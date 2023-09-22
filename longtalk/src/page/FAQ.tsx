@@ -14,8 +14,8 @@ export default function FAQ() {
   const tabTitles = [
     "FAQ",
     "티켓/예매권",
-    "상영 및 상영관 관련",
-    "프로그램 관련",
+    "상영 및 상영관",
+    "프로그램",
     "MD",
     "기타",
   ];
@@ -133,12 +133,7 @@ const MenuTitle = styled.button<{ isActive: boolean }>`
   height: 29px;
 
   margin-top: 13%;
-  @media ${(props) => props.theme.mobile} {
-    position: relative;
 
-    top: 8%;
-    width: 120px;
-  }
   padding: 10px 4%;
   justify-content: center;
   align-items: center;
@@ -146,6 +141,15 @@ const MenuTitle = styled.button<{ isActive: boolean }>`
   border-radius: 10px 10px 0px 0px;
   border-bottom: none;
   background-color: ${(props) => (props.isActive ? "#afbfdb" : "#efeae1")};
+  @media ${(props) => props.theme.mobile} {
+    position: relative;
+    margin-top: 35%;
+    z-index: 5;
+    font-size: 12px;
+    height: 40px;
+    padding: 3px 2%;
+    min-width: 45px;
+  }
 `;
 
 const MenuContainer = styled.div`
@@ -161,7 +165,6 @@ const MenuContainer = styled.div`
   overflow: auto;
   @media ${(props) => props.theme.mobile} {
     position: relative;
-    top: 8%;
   }
 `;
 
