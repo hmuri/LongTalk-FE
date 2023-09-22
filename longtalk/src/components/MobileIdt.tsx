@@ -10,6 +10,9 @@ import mbsec7 from "../assets/image/MbIdtSlider/mbidt7.png";
 import mbsec8 from "../assets/image/MbIdtSlider/mbidt8.png";
 import mbsec9 from "../assets/image/MbIdtSlider/mbidt9.png";
 import mbsec10 from "../assets/image/MbIdtSlider/mbidt10.png";
+import MobileMain from "../assets/MobileMain.gif";
+import ArrowRight from "../assets/icon/ArrowRight.png";
+import ArrowLeft from "../assets/icon/ArrowLeft.png";
 
 const SliderContainer = styled.div`
   display: none;
@@ -17,7 +20,7 @@ const SliderContainer = styled.div`
     display: flex;
     overflow: hidden;
     width: 80%;
-    height: 80%;
+    height: auto;
     margin: auto;
   }
 `;
@@ -30,19 +33,24 @@ const ImageContainer = styled.div<{ translateValue: number }>`
 
 const Image = styled.img<{ marginRight: string; isMain: boolean }>`
   width: 100%;
-  height: 100%;
+  height: auto;
   margin-right: ${(props) => (props.isMain ? props.marginRight : "0%")};
+  margin-bottom: -2%;
 `;
 
-const Button = styled.button`
+const Button = styled.button<{ backgroundImage: string }>`
   display: none;
   @media ${(props) => props.theme.mobile} {
     display: flex;
-    width: 10px;
-    height: 10px;
+    width: 35px;
+    height: 35px;
     position: fixed;
     right: 5%;
     top: 50%;
+    background-image: url(${(props) => props.backgroundImage});
+    background-size: cover;
+    border: none;
+    border-radius: 100%;
   }
 `;
 
@@ -54,13 +62,23 @@ const images = [
   mbsec5,
   mbsec6,
   mbsec7,
+  MobileMain,
   mbsec8,
   mbsec9,
   mbsec10,
 ];
 
 export default function MobileIdt() {
-  const marginRightValues = ["-25%", "-10%", "-10%", "0%", "0%", "0%", "0%"];
+  const marginRightValues = [
+    "-25%",
+    "-10%",
+    "-10%",
+    "0%",
+    "0%",
+    "0%",
+    "0%",
+    "0%",
+  ];
   const [currentIndex, setCurrentIndex] = useState(0);
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
@@ -87,7 +105,12 @@ export default function MobileIdt() {
           />
         ))}
       </ImageContainer>
-      <Button onClick={nextSlide}>Next</Button>
+      <Button
+        onClick={nextSlide}
+        backgroundImage={
+          currentIndex === images.length - 1 ? ArrowLeft : ArrowRight
+        }
+      />
     </SliderContainer>
   );
 }

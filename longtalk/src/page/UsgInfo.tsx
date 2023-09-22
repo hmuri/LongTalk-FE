@@ -7,6 +7,7 @@ import MobileHeader from "../components/MobileHeader";
 import MobileNav from "../components/MobileNav";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import KakaoMap from "../KaKaoMap";
 
 export default function UsgInfo() {
   return (
@@ -30,7 +31,7 @@ export default function UsgInfo() {
               <p style={{ margin: "6px 0px" }}>02-330-6200</p>
               <p style={{ margin: "6px 0px" }}>planet@sangsangmadang.com</p>
             </div>
-            <MapContainer />
+            <KakaoMap />
           </ContentContainer>
           <ContentContainer>
             <Title>교통수단</Title>
@@ -78,7 +79,7 @@ const MenuTitle = styled.div`
   height: 29px;
   position: relative;
   margin-top: 15%;
-  left: 10%;
+  left: 15%;
   padding: 7px 1%;
   justify-content: center;
   align-items: center;
@@ -87,7 +88,8 @@ const MenuTitle = styled.div`
   border-bottom: none;
   background-color: #afbfdb;
   @media ${(props) => props.theme.mobile} {
-    top: 20%;
+    top: 8%;
+    width: 120px;
   }
 `;
 
@@ -103,7 +105,8 @@ const MenuContainer = styled.div`
   flex: 1
   z-index: 7;
   @media ${(props) => props.theme.mobile} {
-    top: 20%;
+    top: 7.5%;
+    width: 100vw;
 
   }
 `;

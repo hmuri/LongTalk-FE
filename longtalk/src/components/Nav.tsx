@@ -138,7 +138,7 @@ const HeaderBtn = styled.button`
   position: relative;
   background: none;
   border: none;
-  z-index: 10;
+  z-index: 11;
   color: #000; /* 버튼 텍스트 색상 설정 */
   cursor: pointer; /* 마우스 커서 스타일 설정 */
   font-size: 23px;
@@ -162,6 +162,7 @@ const CircleContainer = styled.div`
 
 const SubHeader = styled.button<{ delay: string; active: boolean }>`
   background-color: black;
+  width: 100%;
   border-radius: 2px;
   color: white;
   padding: 2%;
