@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Puzzle1 from "../assets/image/Puzzle/Puzzle1.png";
 import Puzzle2 from "../assets/image/Puzzle/Puzzle2.png";
 import Puzzle3 from "../assets/image/Puzzle/Puzzle3.png";
@@ -25,6 +25,12 @@ export default function PCSection() {
             isActive={activePuzzle === "puzzle3"}
             onClick={() => handlePuzzleClick("puzzle3")}
           />
+          <Text isActive={activePuzzle === "puzzle3"} isFromLeft={false}>
+            문제를 제기하는 것을 넘어 해결 방안이나 교훈을 통해 여운을 남긴다.
+          </Text>
+          <TitleText isActive={activePuzzle === "puzzle3"} color={"#CB7FB4"}>
+            절정
+          </TitleText>
         </BlackBox3>
       </ColorBox>
       <ColorBox style={{ backgroundColor: "#CB7FB4" }}>
@@ -33,6 +39,21 @@ export default function PCSection() {
             isActive={activePuzzle === "puzzle2"}
             onClick={() => handlePuzzleClick("puzzle2")}
           />
+          <TitleText
+            isActive={activePuzzle === "puzzle2"}
+            color={"#AFBFDB"}
+            style={{ justifyContent: "left", marginLeft: "30px" }}
+          >
+            위기
+          </TitleText>
+          <Text
+            isActive={activePuzzle === "puzzle2"}
+            isFromLeft={true}
+            style={{ right: "0", left: "auto", justifyContent: "right" }}
+          >
+            고발적인 성격으로, 가감 없이 불쾌하고 찝찝하리만큼 사실적인 작품들을
+            다룬다.
+          </Text>
         </BlackBox2>
       </ColorBox>
       <div style={{ display: "flex", width: "100%" }}>
@@ -42,12 +63,34 @@ export default function PCSection() {
               isActive={activePuzzle === "puzzle1"}
               onClick={() => handlePuzzleClick("puzzle1")}
             />
+            <TitleText
+              isActive={activePuzzle === "puzzle1"}
+              color={"#F1AB85"}
+              style={{ justifyContent: "left", marginLeft: "20px" }}
+            >
+              발단
+            </TitleText>
+            <Text
+              isActive={activePuzzle === "puzzle1"}
+              isFromLeft={true}
+              style={{ right: "0", left: "auto", justifyContent: "right" }}
+            >
+              소통의 부재라는 문제를 수면 위에 꺼내놓는 단순하고 명료한 포인트의
+              작품이 주가 된다.
+            </Text>
           </BlackBox1>
           <BlackBox4 isActive={activePuzzle === "puzzle4"}>
             <PuzzleBox4
               isActive={activePuzzle === "puzzle4"}
               onClick={() => handlePuzzleClick("puzzle4")}
             />
+            <Text isActive={activePuzzle === "puzzle4"} isFromLeft={false}>
+              소통을 이루어내고 기대할 수 있는 희망들을 만져보며, 밝은 미래를
+              엿본다.
+            </Text>
+            <TitleText isActive={activePuzzle === "puzzle4"} color={"#F1AB85"}>
+              결말
+            </TitleText>
           </BlackBox4>
         </ColorBox>
       </div>
@@ -203,4 +246,74 @@ const BlackBox4 = styled.div<{ isActive: boolean }>`
     transition: width 0.3s ease-in-out;
     bottom: 0;
   }
+`;
+
+const fadeInFromRight = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
+
+const fadeInFromLeft = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
+
+const Text = styled.div<{ isActive: boolean; isFromLeft: boolean }>`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70%;
+  display: flex;
+  margin-top: 150px;
+  font-size: 23px;
+
+  color: white;
+  z-index: 7;
+  padding: 15px; // Add some padding around the text
+  box-sizing: border-box;
+  opacity: ${(props) => (props.isActive ? 1 : 0)};
+  visibility: ${(props) => (props.isActive ? "visible" : "hidden")};
+  animation: ${(props) =>
+      props.isActive
+        ? props.isFromLeft
+          ? fadeInFromLeft
+          : fadeInFromRight
+        : "none"}
+    0.5s ease-in-out;
+`;
+
+const TitleText = styled.div<{ isActive: boolean; color: string }>`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin-top: 140px;
+  margin-right: 60px;
+
+  display: flex;
+  align-items: end; // Vertically center the text
+  justify-content: right; // Horizontally center the text
+  color: ${(props) => (props.isActive ? "white" : props.color)};
+  transition: color 0.5s ease-in-out;
+  font-family: NanumSquareRound;
+  font-size: 70px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+
+  z-index: 7;
+  padding: 10px; // Add some padding around the text
+  box-sizing: border-box;
 `;
