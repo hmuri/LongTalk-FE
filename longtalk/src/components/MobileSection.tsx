@@ -177,7 +177,6 @@ const Color = styled.div`
 
 const SideBarImgBox = styled.img`
   display: flex;
-  height: 58%;
   position: fixed;
   left: 0%;
   bottom: 0%;
@@ -186,9 +185,9 @@ const SideBarImgBox = styled.img`
 
 const Sidebar = styled.div`
   width: 169px;
-  height: 100%;
   flex: 0.2;
   display: flex;
+  position: fixed;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
