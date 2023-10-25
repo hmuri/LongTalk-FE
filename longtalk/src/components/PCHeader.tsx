@@ -1,5 +1,7 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import PCHeaderImg from "../assets/image/PCHeader.png";
+
 export default function PCHeader() {
   const handleNavigate = (event: {
     currentTarget: { getBoundingClientRect: () => any };
@@ -7,13 +9,13 @@ export default function PCHeader() {
   }) => {};
   return (
     <>
-      <PCHeaderBox onClick={handleNavigate} />
+      <PCHeaderBox onClick={handleNavigate} to="/" />
       <HeaderBackground />
     </>
   );
 }
 
-const PCHeaderBox = styled.div`
+const PCHeaderBox = styled(Link)`
   display: flex;
   width: 100%;
   height: 14%;
