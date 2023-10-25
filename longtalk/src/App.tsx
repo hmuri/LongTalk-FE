@@ -40,5 +40,4 @@ export default App;
 
 const Container = styled.div<{ isActive: boolean }>`
   display: flex;
-  height: calc(var(--vh, 1vh) * 100);
 `;
