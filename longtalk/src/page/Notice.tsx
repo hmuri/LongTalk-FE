@@ -121,6 +121,7 @@ const MenuContainer = styled.div`
   width: 100vw;
   border-radius: 4px;
   height: calc(85% - 45px);
+  min-height: 70vh;
   overflow: auto;
   @media ${(props) => props.theme.mobile} {
     position: relative;
