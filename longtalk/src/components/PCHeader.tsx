@@ -3,13 +3,9 @@ import { Link } from "react-router-dom";
 import PCHeaderImg from "../assets/image/PCHeader.png";
 
 export default function PCHeader() {
-  const handleNavigate = (event: {
-    currentTarget: { getBoundingClientRect: () => any };
-    clientX: number;
-  }) => {};
   return (
     <>
-      <PCHeaderBox onClick={handleNavigate} to="/" />
+      <PCHeaderBox to="/" />
       <HeaderBackground />
     </>
   );
