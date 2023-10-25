@@ -1,9 +1,13 @@
 import styled from "styled-components";
 import PCHeaderImg from "../assets/image/PCHeader.png";
 export default function PCHeader() {
+  const handleNavigate = (event: {
+    currentTarget: { getBoundingClientRect: () => any };
+    clientX: number;
+  }) => {};
   return (
     <>
-      <PCHeaderBox />
+      <PCHeaderBox onClick={handleNavigate} />
       <HeaderBackground />
     </>
   );
