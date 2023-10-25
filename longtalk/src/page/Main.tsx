@@ -33,7 +33,6 @@ export default function Main() {
 
 const Container = styled.div<{ isActive: boolean }>`
   width: 100%;
-  height: 100%;
   background: radial-gradient(
     146.75% 123.36% at 55.76% 37.06%,
     #efeae1 37.67%,
@@ -43,7 +42,7 @@ const Container = styled.div<{ isActive: boolean }>`
 
 const MotionImg = styled.img`
   width: 100vw;
-  height: 90%;
+  height: 100%;
   position: fixed;
   bottom: 0;
 
