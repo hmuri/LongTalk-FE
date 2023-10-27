@@ -6,5 +6,5 @@ export const menuActive = atom<boolean>({
 });
 export const submitActiveState = atom({
   key: "submitActiveState",
-  default: false,
+  default: true,
 });

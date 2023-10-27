@@ -7,14 +7,15 @@ import MainMotion from "../assets/MainMotion.gif";
 import MobileMain from "../assets/MobileMain.gif";
 import { useRecoilValue, useRecoilState } from "recoil";
 import { menuActive, submitActiveState } from "../recoil";
+import { useEffect } from "react";
 
 export default function Main() {
   const isActive = useRecoilValue(menuActive);
   const [submitActive, setSubmitActive] = useRecoilState(submitActiveState);
-  const handleSubmitPage = () => {
-    console.log(submitActive);
+
+  useEffect(() => {
     setSubmitActive(true);
-  };
+  }, []);
 
   return (
     <Container isActive={isActive}>
@@ -23,9 +24,6 @@ export default function Main() {
       <MobileNav />
       <LogoBox />
       <MobileMotion src={MobileMain} />
-      <SubmitBtn isActive={isActive} onClick={handleSubmitPage}>
-        영화 출품하기
-      </SubmitBtn>
       <SubmitPage />
     </Container>
   );
