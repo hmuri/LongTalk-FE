@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import ArrowBottom from "../assets/icon/ArrowBottom.png";
 import PCHeader from "../components/PCHeader";
 import Notice1 from "../components/Notice1";
+import Notice2 from "../components/Notice2";
 import MobileHeader from "../components/MobileHeader";
 import MobileNav from "../components/MobileNav";
 import Nav from "../components/Nav";
@@ -18,12 +19,19 @@ export default function Notice() {
       "Notice1",
       "르포(REPORTAGE)가 주관하는 제1회 소통영화제 「롱톡」이 2023년 9월 21일부터 단편영화 공모를 진행합니다...",
     ],
+    "02": [
+      "소통영화제 롱톡 선정작 발표",
+      "2023.10.27",
+      "Notice2",
+      "제1회 소통영화제 「롱톡」 선정작 발표 안내",
+    ],
   };
 
   const componentMap: {
     [key: string]: () => JSX.Element;
   } = {
     Notice1: Notice1,
+    Notice2: Notice2,
   };
 
   const DynamicComponent = selectedItem
@@ -87,7 +95,8 @@ export default function Notice() {
 const Container = styled.div`
   flex-direction: column;
   width: 100vw;
-  height: 100%;
+  padding-top: 50px;
+  padding-bottom: 120px;
   background-color: #efeae1;
 `;
 
@@ -123,6 +132,7 @@ const MenuContainer = styled.div`
   height: calc(85% - 45px);
   min-height: 70vh;
   overflow: auto;
+
   @media ${(props) => props.theme.mobile} {
     position: relative;
     top: 8%;
@@ -188,7 +198,8 @@ const ContentTitle = styled.div`
   flex: 0.6;
   @media ${(props) => props.theme.mobile} {
     flex: 0.9;
-    justify-content: right;
+    justify-content: flex-start;
+    padding-left: 5px;
   }
 `;
 
@@ -224,6 +235,9 @@ const ContentShort = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 35px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid;
+  width: 90%;
   @media ${(props) => props.theme.mobile} {
     font-size: 15px;
     font-weight: 400;
