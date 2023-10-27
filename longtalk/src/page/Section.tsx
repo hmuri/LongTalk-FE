@@ -15,7 +15,7 @@ export default function Section() {
       <PCHeader />
       <MobileNav />
       <MobileHeader />
-      <MobileSectionImgBox src={MobileSectionImg} />
+
       <MobileSection />
       <PCSection />
     </Container>
@@ -27,15 +27,4 @@ const Container = styled.div`
   flex-direction: column;
   background-color: #efeae1;
   width: 100%;
-`;
-
-const MobileSectionImgBox = styled.img`
-  display: none;
-  @media ${(props) => props.theme.mobile} {
-    display: flex;
-    width: 100%;
-    height: 200px;
-    margin-top: 90px;
-    background-color: grey;
-  }
 `;

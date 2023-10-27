@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import MobileHeader from "../assets/image/LongTalkHeader.png";
+import { Link } from "react-router-dom";
 
 export default function () {
-  return <MobileHeaderBox />;
+  return <MobileHeaderBox to="/" />;
 }
 
-const MobileHeaderBox = styled.div`
+const MobileHeaderBox = styled(Link)`
   display: none;
   @media ${(props) => props.theme.mobile} {
     display: flex;

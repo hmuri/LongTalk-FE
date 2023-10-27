@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import styled, { keyframes, css } from "styled-components";
 import SideBarImg from "../assets/image/SectionSideBar.png";
+import MobileSectionImg from "../assets/image/MobileSection.png";
 
 function usePrevious<T>(value: T): T | undefined {
   const ref = useRef<T>();
@@ -68,6 +69,7 @@ export default function MobileSection() {
 
   return (
     <BodyContainer>
+      <MobileSectionImgBox src={MobileSectionImg} />
       <ColorContainer>
         <BackgroundContainer
           key={key}
@@ -119,8 +121,18 @@ const BodyContainer = styled.div`
   display: none;
   @media ${(props) => props.theme.mobile} {
     display: flex;
-    margin: auto 0 0 0;
-    height: 58%;
+    height: 100%;
+    background-color: #efeae1;
+  }
+`;
+const MobileSectionImgBox = styled.img`
+  display: none;
+  @media ${(props) => props.theme.mobile} {
+    display: flex;
+    width: 100%;
+    height: calc(100% - 120px);
+    margin-top: 90px;
+    background-color: #efeae1;
   }
 `;
 
@@ -140,7 +152,8 @@ const ColorContainer = styled.div`
     flex-direction: column;
     position: fixed;
     width: 100%;
-    height: 60%;
+    height: 65%;
+    top: 35%;
     justify-content: space-between;
     align-items: center;
   }
@@ -152,7 +165,8 @@ const BackgroundContainer = styled.div<{ backgroundColor: string }>`
     flex-direction: column;
     position: fixed;
     width: 100%;
-    height: 60%;
+    height: 65%;
+    top: 35%;
     justify-content: space-between;
     align-items: center;
     background-color: ${(props) =>
@@ -177,31 +191,30 @@ const Color = styled.div`
 
 const SideBarImgBox = styled.img`
   display: flex;
-  height: 58%;
   position: fixed;
-  left: 0%;
-  bottom: 0%;
+  top: 35%;
+  height: 65%;
   z-index: 5;
 `;
 
 const Sidebar = styled.div`
-  width: 169px;
-  height: 100%;
-  flex: 0.2;
+  height: 65%;
+  top: 35%;
+  width: 100px;
   display: flex;
+  position: fixed;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   z-index: 5;
 `;
 
 const SidebarItem = styled.div<{ selected: boolean }>`
-  height: 100%;
-  width: 90px;
   display: flex;
+
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  flex-grow: 1;
   color: ${(props) => (props.selected ? "white" : "black")};
   text-align: center;
   font-family: NanumSquareRound;
@@ -212,16 +225,20 @@ const SidebarItem = styled.div<{ selected: boolean }>`
 `;
 
 const ContentContainer = styled.div`
-  flex: 0.8;
+  position: fixed;
+  height: 65%;
+  top: 35%;
+  width: calc(100% - 100px);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 5;
-  margin: auto 30px;
+  right: 0;
 `;
 
 const ContentText = styled.p`
   opacity: 0;
+  margin: auto 30px;
   transition: opacity 0.5s ease-in-out;
   animation: fade-in 0.5s forwards;
   animation-delay: 0.5s;
