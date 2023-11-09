@@ -6,10 +6,12 @@ import { useRecoilState } from "recoil";
 import { menuActive } from "../recoil";
 import { Link } from "react-router-dom";
 import CloseSquare from "../assets/icon/Close_square.png";
+import { useNavigate } from "react-router-dom";
 
 export default function MobileNav() {
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useRecoilState<boolean>(menuActive);
+  const navigate = useNavigate();
 
   const navItems: {
     [key: string]: {
@@ -59,7 +61,9 @@ export default function MobileNav() {
 
   const handleMainItemClick = (mainItem: string) => {
     const item = navItems[mainItem];
-    if (item.alertMessage) {
+    if (item.link) {
+      navigate(item.link);
+    } else if (item.alertMessage) {
       alert(item.alertMessage);
     } else {
       setSelectedItem(mainItem === selectedItem ? null : mainItem);

@@ -1,11 +1,12 @@
 import { useState } from "react";
 import styled from "styled-components";
 import Circle from "../assets/svg/Circle";
-
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export default function Nav() {
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const navItems: {
     [key: string]: {
@@ -33,7 +34,7 @@ export default function Nav() {
     },
     "상영/예매": {
       label: "상영/예매",
-      alertMessage: "11월 초 오픈 예정입니다.",
+      link: "/timeTable",
     },
     이벤트: {
       label: "이벤트",
@@ -51,7 +52,9 @@ export default function Nav() {
 
   const handleMainItemClick = (mainItem: string) => {
     const item = navItems[mainItem];
-    if (item.alertMessage) {
+    if (item.link) {
+      navigate(item.link);
+    } else if (item.alertMessage) {
       alert(item.alertMessage);
     } else {
       setSelectedItem(mainItem === selectedItem ? null : mainItem);
