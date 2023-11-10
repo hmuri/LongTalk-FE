@@ -48,7 +48,12 @@ export default function Booking() {
               <br />
               <br />
               <br />
-              <TumblbugBtn>텀블벅 바로가기</TumblbugBtn>
+              <a
+                href="https://tumblbug.com/longtalk?ref=%EA%B2%80%EC%83%89%2F%ED%82%A4%EC%9B%8C%EB%93%9C"
+                style={{ textDecoration: "none" }}
+              >
+                <TumblbugBtn>텀블벅 바로가기</TumblbugBtn>
+              </a>
             </div>
             <br />
             <br />
@@ -188,6 +193,8 @@ const Title = styled.div`
 `;
 
 const TumblbugBtn = styled.div`
+  color: black;
+
   display: flex;
   width: 200px;
   height: 40px;
