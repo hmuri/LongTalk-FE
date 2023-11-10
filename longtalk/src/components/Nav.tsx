@@ -38,7 +38,7 @@ export default function Nav() {
         { label: "상영시간표", link: "/timetable" },
         { label: "예매페이지", link: "/booking" },
         { label: "관람유의사항", link: "/guideline" },
-        { label: "온라인상영", link: "/section" },
+        { label: "온라인상영", link: "/online" },
       ],
     },
     이벤트: {
