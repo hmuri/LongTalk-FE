@@ -34,11 +34,16 @@ export default function Nav() {
     },
     "상영/예매": {
       label: "상영/예매",
-      link: "/timeTable",
+      subItems: [
+        { label: "상영시간표", link: "/timetable" },
+        { label: "예매페이지", link: "/section" },
+        { label: "관람유의사항", link: "/section" },
+        { label: "온라인상영", link: "/section" },
+      ],
     },
     이벤트: {
       label: "이벤트",
-      alertMessage: "11월 초 오픈 예정입니다.",
+      alertMessage: "12월 초 오픈 예정입니다.",
     },
     "페스티벌 가이드": {
       label: "페스티벌 가이드",
@@ -159,6 +164,7 @@ const CircleContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 38px;
+  z-index: 10;
   position: absolute;
   top: 30px;
 `;
@@ -174,7 +180,7 @@ const SubHeader = styled.button<{ delay: string; active: boolean }>`
   font-weight: 400;
   line-height: normal;
   border: none;
-  z-index: 100;
+  z-index: 12;
   opacity: ${(props) => (props.active ? "1" : "0")};
   transition: opacity 0.3s ease-in-out;
   transition-delay: ${(props) => props.delay || "0s"};

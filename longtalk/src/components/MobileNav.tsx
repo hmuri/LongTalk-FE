@@ -39,11 +39,16 @@ export default function MobileNav() {
     },
     "상영/예매": {
       label: "상영/예매",
-      alertMessage: "11월 초 오픈 예정입니다.",
+      subItems: [
+        { label: "상영시간표", link: "/timetable" },
+        { label: "예매페이지", link: "/section" },
+        { label: "관람유의사항", link: "/section" },
+        { label: "온라인상영", link: "/section" },
+      ],
     },
     이벤트: {
       label: "이벤트",
-      alertMessage: "11월 초 오픈 예정입니다.",
+      alertMessage: "12월 초 오픈 예정입니다.",
     },
     "페스티벌 가이드": {
       label: "페스티벌 가이드",
