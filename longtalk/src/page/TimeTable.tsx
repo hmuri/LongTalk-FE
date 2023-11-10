@@ -1,112 +1,235 @@
 import { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
-import ArrowBottom from "../assets/icon/ArrowBottom.png";
+
 import PCHeader from "../components/PCHeader";
-import Notice1 from "../components/Notice1";
 import MobileHeader from "../components/MobileHeader";
 import MobileNav from "../components/MobileNav";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
-import KakaoMap from "../KaKaoMap";
+import SatTime from "../assets/image/SatTime.png";
+import SunTime from "../assets/image/SunTime.png";
+import "../style/style.css";
 
 export default function TimeTable() {
   return (
-    <Container>
-      <Nav />
-      <PCHeader />
-      <MobileHeader />
-      <MobileNav />
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        <MenuTitle>이용안내</MenuTitle>
+    <body>
+      <Container>
+        <Nav />
+        <PCHeader />
+        <MobileHeader />
+        <MobileNav />
         <MenuContainer>
           <ContentContainer>
-            <Title>행사공간</Title>
-            <div>
-              <p style={{ margin: "20px 0px 6px 0px" }}>
-                KT&G 상상마당 홍대 오시는 길
-              </p>
-              <p style={{ margin: "6px 0px" }}>
-                (04042) 서울시 마포구 어울마당로 65 (서교동) KT&G 상상마당
-              </p>
-              <p style={{ margin: "6px 0px" }}>02-330-6200</p>
-              <p style={{ margin: "6px 0px" }}>planet@sangsangmadang.com</p>
-            </div>
-            <KakaoMap />
-          </ContentContainer>
-          <ContentContainer>
-            <Title>교통수단</Title>
-            <div>
-              <p style={{ margin: "20px 0px 6px 0px" }}>
-                지하철: 2호선 홍대입구역 9번 출구, 합정역 3번 출구 / 6호선
-                상수역 1번 출구
-              </p>
-              <p style={{ margin: "6px 0px" }}>
-                버스: 마포08번, 마포16번, 7011번
-              </p>
-              <p style={{ margin: "6px 0px" }}>
-                자가용: 서울시 마포구 어울마당로 65(서교동 367-5)로 주소검색
-                이용 부탁드립니다.
-              </p>
-            </div>
-          </ContentContainer>
-          <ContentContainer style={{ border: "none" }}>
-            <Title>주차안내</Title>
-            <div>
-              <p style={{ margin: "6px 0px" }}>
-                상상마당에는 별도의 주차공간이 없습니다. 가급적 대중교통수단을
-                이용하시기 바랍니다.
-              </p>
-            </div>
+            <Title>상영시간표</Title>
+            <Title>December 2023</Title>
+            <DayContainer>
+              <ImgBox />
+              <DayTextBox>
+                <TextBox>
+                  <TitleBox>섹션1: 발단</TitleBox>
+                  <br />
+                  <TimeSlot>
+                    <p className="table">13:00 – 13:20 (20')</p>
+                    <p className="table">오프닝 멘트</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">13:20 – 13:30 (10')</p>
+                    <p className="table">행사 준비 및 입장</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">13:30 – 14:00 (30')</p>
+                    <p className="table">발단 — 영화1 상영</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">14:00 – 14:30 (30')</p>
+                    <p className="table">발단 — 영화2 상영</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">14:30 – 15:00 (30')</p>
+                    <p className="table">발단 — 영화3 상영</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">15:00 – 15:10 (10')</p>
+                    <p className="table">인터미션</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">15:10 – 15:40 (30')</p>
+                    <p className="table">발단 — GV 진행</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">15:40 – 16:10 (30')</p>
+                    <p className="table">프로그램 및 이벤트 진행</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">16:10 – 16:30 (20')</p>
+                    <p className="table">관객 퇴장 및 사진 촬영</p>
+                  </TimeSlot>
+                  <br />
+                </TextBox>
+                <MobileImgBox />
+                <TextBox>
+                  <TitleBox>섹션2: 위기</TitleBox>
+                  <TimeSlot>
+                    <p className="table">16:30 – 16:50 (20')</p>
+                    <p className="table">행사 준비 및 입장</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">16:50 – 17:00 (10')</p>
+                    <p className="table">오프닝 멘트</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">17:00 – 17:30 (30')</p>
+                    <p className="table">위기 — 영화1 상영</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">17:30 – 18:00 (30')</p>
+                    <p className="table">위기 — 영화2 상영</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">18:00 – 18:30 (30')</p>
+                    <p className="table">위기 — 영화3 상영</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">18:30 – 18:40 (10')</p>
+                    <p className="table">인터미션</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">18:40 – 19:10 (30')</p>
+                    <p className="table">위기 — GV 진행</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">19:10 – 19:40 (30')</p>
+                    <p className="table">프로그램 및 이벤트 진행</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">19:40 – 20:00 (20')</p>
+                    <p className="table">관객 퇴장 및 사진 촬영</p>
+                  </TimeSlot>
+                </TextBox>
+                <br />
+                <br />
+              </DayTextBox>
+            </DayContainer>
+            <DayContainer>
+              <SunImgBox />
+              <DayTextBox>
+                <TextBox>
+                  <TitleBox>섹션3: 절정</TitleBox>
+                  <br />
+                  <TimeSlot>
+                    <p className="table">13:00 – 13:20 (20')</p>
+                    <p className="table">행사 준비 및 입장</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">13:20 – 13:30 (10')</p>
+                    <p className="table">오프닝 멘트</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">13:30 – 14:00 (30')</p>
+                    <p className="table">절정 — 영화1 상영</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">14:00 – 14:30 (30')</p>
+                    <p className="table">절정 — 영화2 상영</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">14:30 – 15:00 (30')</p>
+                    <p className="table">절정 — 영화3 상영</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">15:00 – 15:10 (10')</p>
+                    <p className="table">인터미션</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">15:10 – 15:40 (30')</p>
+                    <p className="table">절정 — GV 진행</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">15:40 – 16:10 (30')</p>
+                    <p className="table">프로그램 및 이벤트 진행</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">16:10 – 16:30 (20')</p>
+                    <p className="table">관객 퇴장 및 사진 촬영</p>
+                  </TimeSlot>
+                  <br />
+                </TextBox>
+                <MobileSunImgBox />
+                <TextBox>
+                  <TitleBox>섹션4: 결말</TitleBox>
+                  <br />
+                  <TimeSlot>
+                    <p className="table">16:30 – 16:50 (20')</p>
+                    <p className="table">행사 준비 및 입장</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">16:50 – 17:00 (10')</p>
+                    <p className="table">오프닝 멘트</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">17:00 – 17:30 (30')</p>
+                    <p className="table">결말 — 영화1 상영</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">17:30 – 18:00 (30')</p>
+                    <p className="table">결말 — 영화2 상영</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">18:00 – 18:30 (30')</p>
+                    <p className="table">결말 — 영화3 상영</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">18:30 – 18:40 (10')</p>
+                    <p className="table">인터미션</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">18:40 – 19:10 (30')</p>
+                    <p className="table">결말 — GV 진행</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">19:10 – 19:40 (30')</p>
+                    <p className="table">프로그램 및 이벤트 진행</p>
+                  </TimeSlot>
+                  <TimeSlot>
+                    <p className="table">19:40 – 20:00 (20')</p>
+                    <p className="table">관객 퇴장 및 사진 촬영</p>
+                  </TimeSlot>
+                  <br />
+                  <br />
+                  <br />
+                </TextBox>
+              </DayTextBox>
+            </DayContainer>
           </ContentContainer>
         </MenuContainer>
-        <Footer />
-      </div>
-    </Container>
+      </Container>
+      <Footer />
+    </body>
   );
 }
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  background-color: #efeae1;
-`;
-
-const MenuTitle = styled.div`
-  display: flex;
-  width: 137px;
-  height: 29px;
   position: relative;
-  margin-top: 15%;
-  left: 15%;
-  padding: 7px 1%;
-  justify-content: center;
-  align-items: center;
-  border: solid 1px black;
-  border-radius: 16px 16px 0px 0px;
-  border-bottom: none;
-  background-color: #afbfdb;
-  @media ${(props) => props.theme.mobile} {
-    top: 8%;
-    width: 120px;
-  }
+  flex-direction: column;
+  width: 100vw;
+  background-color: #efeae1;
 `;
 
 const MenuContainer = styled.div`
   display: flex;
-  position: relative;
   flex-direction: column;
   width: 100%;
-  top: 0%;
+  padding-top: 13%;
   border: 1px solid black;
   background-color: #afbfdb;
   padding-bottom: 50px;
   flex: 1
   z-index: 7;
   @media ${(props) => props.theme.mobile} {
-    top: 7.5%;
     width: 100vw;
+    padding-top: 20%;
+
 
   }
 `;
@@ -114,31 +237,137 @@ const MenuContainer = styled.div`
 const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 86%;
   margin: auto;
   padding: 4% 0;
-  border-bottom: 1px solid black;
   @media ${(props) => props.theme.mobile} {
-    padding: 8% 0;
+    padding: 13% 0;
+    height: 100%;
   }
 `;
 
 const Title = styled.div`
   display: flex;
+  color: #000;
   font-family: Pretendard Variable;
-  font-size: 27px;
+  font-size: 40px;
   font-style: normal;
   font-weight: 600;
-  line-height: 42px;
+  line-height: normal;
   @media ${(props) => props.theme.mobile} {
     font-size: 23px;
   }
 `;
 
-const MapContainer = styled.div`
+const DayContainer = styled.div`
   display: flex;
   width: 100%;
   height: 400px;
-  margin-top: 10px;
-  background-color: orange;
+  margin-top: 5%;
+
+  @media ${(props) => props.theme.mobile} {
+    height: 100%;
+  }
+`;
+
+const ImgBox = styled.div`
+  width: 110px;
+  height: 60px;
+  background-image: url(${SatTime});
+  background-size: cover;
+`;
+const MobileImgBox = styled.div`
+  display: none;
+  @media ${(props) => props.theme.mobile} {
+    display: flex;
+    position: absolute;
+    top: 30%;
+    left: 8%;
+    width: 110px;
+    height: 60px;
+    background-image: url(${SatTime});
+    background-size: cover;
+  }
+`;
+
+const SunImgBox = styled.div`
+  width: 110px;
+  height: 60px;
+  background-image: url(${SunTime});
+  background-size: cover;
+`;
+
+const MobileSunImgBox = styled.div`
+  display: none;
+  @media ${(props) => props.theme.mobile} {
+    display: flex;
+    position: absolute;
+    left: 8%;
+    bottom: 24.5%;
+    width: 110px;
+    height: 60px;
+    background-image: url(${SunTime});
+    background-size: cover;
+  }
+`;
+
+const DayTextBox = styled.div`
+  display: flex;
+  width: calc(100vw - 20% - 110px);
+  margin-left: 40px;
+
+  @media ${(props) => props.theme.mobile} {
+    width: calc(100% - 110px);
+    margin-left: 0px;
+    flex-direction: column;
+  }
+`;
+
+const TextBox = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  @media ${(props) => props.theme.mobile} {
+    width: 100%;
+    margin-left: 20px;
+  }
+`;
+
+const TitleBox = styled.div`
+  display: flex;
+  width: 100%;
+  height: 60px;
+  align-items: center;
+  color: #000;
+
+  font-family: Pretendard Variable;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  @media ${(props) => props.theme.mobile} {
+    width: calc(100% - 55px);
+    height: 60px;
+    font-size: 23px;
+    margin-bottom: 10px;
+    margin-left: calc(50% - 55px);
+
+    font-weight: 600;
+  }
+`;
+const TimeSlot = styled.div`
+  width: 100%;
+  height: 40px;
+
+  align-items: center;
+  font-size: 25px;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 10px;
+  @media ${(props) => props.theme.mobile} {
+    display: flex;
+    margin-left: -120px;
+    width: calc(100% + 120px);
+  }
 `;
