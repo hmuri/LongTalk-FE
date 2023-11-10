@@ -36,6 +36,7 @@ const HeaderBackground = styled.div`
   z-index: 7;
   @media ${(props) => props.theme.mobile} {
     z-index: 1;
+    width: 100vw;
     height: 90px;
   }
 `;
