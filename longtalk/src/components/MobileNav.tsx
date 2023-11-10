@@ -159,8 +159,6 @@ const Container = styled.div<{ menuOpen: boolean }>`
   @media ${(props) => props.theme.mobile} {
     display: flex;
     width: 100vw;
-    height: 100vh;
-    position: fixed;
 
     background: ${(props) => (props.menuOpen ? "rgba(0, 0, 0, 0.65)" : "none")};
 

@@ -10,7 +10,7 @@ const MobileHeaderBox = styled(Link)`
   display: none;
   @media ${(props) => props.theme.mobile} {
     display: flex;
-    width: 100%;
+    width: 100vw;
     height: 70px;
     background-size: cover;
     position: fixed;
