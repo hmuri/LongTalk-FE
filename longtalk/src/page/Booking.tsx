@@ -7,7 +7,10 @@ import MobileHeader from "../components/MobileHeader";
 import MobileNav from "../components/MobileNav";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
-import KakaoMap from "../KaKaoMap";
+import TumblbugLogo from "../assets/image/Tumblbug.png";
+import Badge from "../assets/image/Badge.png";
+import Keyring from "../assets/image/Keyring.png";
+import Book from "../assets/image/Book.png";
 
 export default function Booking() {
   return (
@@ -17,45 +20,116 @@ export default function Booking() {
       <MobileHeader />
       <MobileNav />
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <MenuTitle>이용안내</MenuTitle>
         <MenuContainer>
+          <br />
           <ContentContainer>
-            <Title>행사공간</Title>
+            <Title>텀블벅</Title>
+            <br />
             <div>
-              <p style={{ margin: "20px 0px 6px 0px" }}>
-                KT&G 상상마당 홍대 오시는 길
+              <p>
+                영화제 ‘롱톡(LongTalk)’을 개최하는 텀블벅 프로젝트는 팀 르포가
+                제작하는 한 단편영화에서 시작되었습니다. 가벼운 주제의 짧은
+                영상들을 반복적으로 소비하는 행동을 통해, 보다 쉽게 사회의
+                본질적인 측면을 외면하고 있는 문제를 인식한 데서 시작된
+                것입니다. 단편영화들을 통해 긴 대화를 나눌 수 있는 기회를
+                만들고자 함이 이 프로젝트를 시작한 핵심적 목표이자 기획
+                의도입니다.
               </p>
-              <p style={{ margin: "6px 0px" }}>
-                (04042) 서울시 마포구 어울마당로 65 (서교동) KT&G 상상마당
+              <br />
+
+              <p>
+                본 영화제의 예매를 텀블벅 프로젝트를 통해 받고 있습니다. 이에
+                따라 아래 링크를 통해 섹션을 예매하고 굿즈를 선택하실 수
+                있습니다.
               </p>
-              <p style={{ margin: "6px 0px" }}>02-330-6200</p>
-              <p style={{ margin: "6px 0px" }}>planet@sangsangmadang.com</p>
+              <br />
+              <br />
+              <img src={TumblbugLogo} />
+              <br />
+              <br />
+              <br />
+              <TumblbugBtn>텀블벅 바로가기</TumblbugBtn>
             </div>
-            <KakaoMap />
-          </ContentContainer>
-          <ContentContainer>
-            <Title>교통수단</Title>
+            <br />
+            <br />
+            <br />
+            <br />
+            <Title>예매 안내</Title>
+            <br />
             <div>
-              <p style={{ margin: "20px 0px 6px 0px" }}>
-                지하철: 2호선 홍대입구역 9번 출구, 합정역 3번 출구 / 6호선
-                상수역 1번 출구
+              <p>
+                본 영화제는 네 섹션으로 이루어져 있으며 양일에 걸쳐 진행됩니다.
               </p>
-              <p style={{ margin: "6px 0px" }}>
-                버스: 마포08번, 마포16번, 7011번
+              <br />
+              <p>
+                <b>[발단 에디션]</b>을 선택하실 경우, 섹션1을 관람하실 수 있으며
+                키링이나 뱃지 중 랜덤 1종을 증정합니다.
+              </p>{" "}
+              <p>
+                {" "}
+                <b>[위기 에디션]</b>을 선택하실 경우, 섹션2를 관람하실 수 있으며
+                키링이나 뱃지 중 랜덤 1종을 증정합니다.{" "}
               </p>
-              <p style={{ margin: "6px 0px" }}>
-                자가용: 서울시 마포구 어울마당로 65(서교동 367-5)로 주소검색
-                이용 부탁드립니다.
+              <p>
+                <b>[절정 에디션]</b>을 선택하실 경우, 섹션3을 관람하실 수 있으며
+                키링이나 뱃지 중 랜덤 1종을 증정합니다.{" "}
               </p>
+              <p>
+                <b>[결말 에디션]</b>을 선택하실 경우, 섹션4를 관람하실 수 있으며
+                키링이나 뱃지 중 랜덤 1종을 증정합니다.{" "}
+              </p>
+              <p>
+                <b>[리미티드 에디션]</b>을 선택하실 경우, 섹션 하나를 선택하여
+                관람하실 수 있으며 키링이나 뱃지 중 랜덤 1종, 프로그램북을
+                증정합니다.
+              </p>
+              <br />
+              <br />
             </div>
-          </ContentContainer>
-          <ContentContainer style={{ border: "none" }}>
-            <Title>주차안내</Title>
+            <Title>굿즈</Title>
+            <br />
+            <br />
+            <img src={Keyring} />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                marginTop: "10px",
+              }}
+            >
+              <ImageBox />
+              <BookImgBox />
+            </div>
+            <br />
             <div>
-              <p style={{ margin: "6px 0px" }}>
-                상상마당에는 별도의 주차공간이 없습니다. 가급적 대중교통수단을
-                이용하시기 바랍니다.
+              <p>
+                <b>키링: </b>영화제 ‘롱톡(LongTalk)’의 모티프가 된 릴레이소설을
+                '퍼즐'로 하여 풀어낸 디자인입니다. 이야기는 발단과 전개, 위기와
+                절정, 그리고 마지막 결말까지 모여 완성되듯이 영화제
+                ‘롱톡(LongTalk)’도 네 섹션에 이르러 이야기가 합쳐지고 더욱
+                강력한 메시지가 됩니다. 네 조각의 퍼즐로 빗댄 섹션들이 합쳐져
+                있는 모양이 키링으로 탄생했습니다.
+              </p>{" "}
+              <br />
+              <p>
+                {" "}
+                <b>뱃지: </b>영화제 ‘롱톡(LongTalk)’의 로고를 담아낸 디자인이
+                들어간 뱃지입니다. 위의 키링과 같이 영화제 ‘롱톡(LongTalk)’의
+                정체성을 담고 있습니다.{" "}
               </p>
+              <br />
+              <p>
+                <b>프로그램북: </b>영화제 ‘롱톡(LongTalk)’의 제작 과정기를 담은
+                프로그램북입니다. 영화제 ‘롱톡(LongTalk)’의 자세한
+                기획의도에서부터 어떤 과정으로 프로그램을 구성하고
+                진행되어왔는지 보여줍니다. 더불어, 어떤 의도와 영감으로부터
+                포스터, 모션 그래픽, 사이트에 이르는 많은 작업물들이
+                디자인되었는지 공개합니다. 마지막 페이지에 있는 후원자 명단에
+                펀딩해주신 소중한 분들의 성함(닉네임)을 기입할 예정입니다.{" "}
+              </p>
+              <br />
+              <br />
             </div>
           </ContentContainer>
         </MenuContainer>
@@ -71,26 +145,7 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   background-color: #efeae1;
-`;
-
-const MenuTitle = styled.div`
-  display: flex;
-  width: 137px;
-  height: 29px;
-  position: relative;
-  margin-top: 15%;
-  left: 15%;
-  padding: 7px 1%;
-  justify-content: center;
-  align-items: center;
-  border: solid 1px black;
-  border-radius: 16px 16px 0px 0px;
-  border-bottom: none;
-  background-color: #afbfdb;
-  @media ${(props) => props.theme.mobile} {
-    top: 8%;
-    width: 120px;
-  }
+  padding-top: 7%;
 `;
 
 const MenuContainer = styled.div`
@@ -98,15 +153,13 @@ const MenuContainer = styled.div`
   position: relative;
   flex-direction: column;
   width: 100%;
-  top: 0%;
-  border: 1px solid black;
   background-color: #afbfdb;
   padding-bottom: 50px;
   flex: 1
   z-index: 7;
   @media ${(props) => props.theme.mobile} {
-    top: 7.5%;
     width: 100vw;
+    
 
   }
 `;
@@ -116,29 +169,50 @@ const ContentContainer = styled.div`
   flex-direction: column;
   width: 70%;
   margin: auto;
-  padding: 4% 0;
-  border-bottom: 1px solid black;
+  padding: 8% 0;
   @media ${(props) => props.theme.mobile} {
-    padding: 8% 0;
+    padding: 16% 0;
   }
 `;
 
 const Title = styled.div`
-  display: flex;
+  color: #000;
   font-family: Pretendard Variable;
-  font-size: 27px;
+  font-size: 35px;
   font-style: normal;
   font-weight: 600;
-  line-height: 42px;
+  line-height: normal;
   @media ${(props) => props.theme.mobile} {
     font-size: 23px;
   }
 `;
 
-const MapContainer = styled.div`
+const TumblbugBtn = styled.div`
   display: flex;
-  width: 100%;
-  height: 400px;
-  margin-top: 10px;
-  background-color: orange;
+  width: 200px;
+  height: 40px;
+  padding: 9px 33px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  border-radius: 40px;
+  border: 1px solid var(--black, rgba(0, 0, 0, 0.98));
+  background: var(--apricot, #f1ab85);
+`;
+
+const ImageBox = styled.div`
+  display: flex;
+  width: 41%;
+  padding-top: 41%;
+  background-image: url(${Badge});
+  background-size: cover;
+`;
+
+const BookImgBox = styled.div`
+  display: flex;
+  width: 57%;
+  padding-top: 40%;
+  background-image: url(${Book});
+  background-size: cover;
 `;

@@ -41,7 +41,7 @@ export default function MobileNav() {
       label: "상영/예매",
       subItems: [
         { label: "상영시간표", link: "/timetable" },
-        { label: "예매페이지", link: "/section" },
+        { label: "예매페이지", link: "/booking" },
         { label: "관람유의사항", link: "/section" },
         { label: "온라인상영", link: "/section" },
       ],
