@@ -11,6 +11,7 @@ import FAQ from "./page/FAQ";
 import { useRecoilValue } from "recoil";
 import { menuActive } from "./recoil";
 import TimeTable from "./page/TimeTable";
+import Booking from "./page/Booking";
 
 function App() {
   function setScreenSize() {
@@ -33,6 +34,7 @@ function App() {
         <Route path="/guide" element={<UsgInfo />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/timeTable" element={<TimeTable />} />
+        <Route path="/booking" element={<Booking />} />
       </Routes>
     </Container>
   );
