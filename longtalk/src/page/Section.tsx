@@ -44,19 +44,31 @@ export default function Section() {
         <SectionDescription>{description}</SectionDescription>
       </SubHeader>
       <FilmContainer>
-        <SubFilmContainer>
-          <StealCutImg />
-          <FilmInfoBox></FilmInfoBox>
-        </SubFilmContainer>
-        <SubFilmContainer>
-          <FilmInfoBox></FilmInfoBox>
-          <StealCutImg />
-        </SubFilmContainer>
-        <SubFilmContainer>
-          <StealCutImg />
-          <FilmInfoBox></FilmInfoBox>
-        </SubFilmContainer>
+        {movies.map((movie, index) => (
+          <SubFilmContainer key={index}>
+            {index === 1 ? (
+              <>
+                <FilmInfoBox>
+                  {movie.koreanTitle}
+                  <br />
+                  {movie.englishTitle}
+                </FilmInfoBox>
+                <StealCutImg>{movie.stealImage}</StealCutImg>
+              </>
+            ) : (
+              <>
+                <StealCutImg>{movie.stealImage}</StealCutImg>
+                <FilmInfoBox>
+                  {movie.koreanTitle}
+                  <br />
+                  {movie.englishTitle}
+                </FilmInfoBox>
+              </>
+            )}
+          </SubFilmContainer>
+        ))}
       </FilmContainer>
+
       <Footer />
     </Container>
   );
