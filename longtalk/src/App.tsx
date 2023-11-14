@@ -29,7 +29,7 @@ function App() {
     <Container isActive={isActive}>
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/section" element={<Section />} />
+        <Route path="/section/:category" element={<Section />} />
         <Route path="/notice" element={<Notice />} />
         <Route path="/holdInfo" element={<HoldInfo />} />
         <Route path="/identity" element={<Identity />} />

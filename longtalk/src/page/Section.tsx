@@ -4,17 +4,41 @@ import Nav from "../components/Nav";
 import MobileNav from "../components/MobileNav";
 import PCHeader from "../components/PCHeader";
 import Footer from "../components/Footer";
-import { useRecoilValue } from "recoil";
+import { useRecoilValue, useRecoilState } from "recoil";
 import {
   currentCategoryState,
   filteredMoviesSelector,
   descriptionSelector,
 } from "../recoil";
 
+import { useParams, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+
 export default function Section() {
-  const currentCategory = useRecoilValue(currentCategoryState);
+  const { category } = useParams();
+  const navigate = useNavigate();
+  const [currentCategory, setCurrentCategory] =
+    useRecoilState(currentCategoryState);
   const movies = useRecoilValue(filteredMoviesSelector);
   const description = useRecoilValue(descriptionSelector);
+
+  useEffect(() => {
+    if (category) {
+      setCurrentCategory(category);
+    }
+  }, [category, setCurrentCategory]);
+
+  const changeCategory = (direction: string) => {
+    const categories = ["발단", "위기", "절정", "결말"];
+    const currentIndex = categories.indexOf(currentCategory);
+    let nextIndex = direction === "left" ? currentIndex - 1 : currentIndex + 1;
+
+    if (nextIndex < 0) nextIndex = categories.length - 1;
+    if (nextIndex >= categories.length) nextIndex = 0;
+
+    navigate(`/${categories[nextIndex]}`);
+  };
+
   return (
     <Container>
       <Nav />
@@ -42,6 +66,8 @@ export default function Section() {
           </svg>
         </CircleContainer>
         <SectionDescription>{description}</SectionDescription>
+        <button onClick={() => changeCategory("left")}>왼쪽</button>
+        <button onClick={() => changeCategory("right")}>오른쪽</button>
       </SubHeader>
       <FilmContainer>
         {movies.map((movie, index) => (
