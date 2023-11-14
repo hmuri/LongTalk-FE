@@ -36,7 +36,7 @@ export default function Section() {
     if (nextIndex < 0) nextIndex = categories.length - 1;
     if (nextIndex >= categories.length) nextIndex = 0;
 
-    navigate(`/${categories[nextIndex]}`);
+    navigate(`/section/${categories[nextIndex]}`);
   };
 
   return (
@@ -159,7 +159,7 @@ const SubFilmContainer = styled.div`
   border: solid 1px red;
 `;
 
-const StealCutImg = styled.img`
+const StealCutImg = styled.div`
   display: flex;
   flex: 0.7;
   border-right: solid 1px black;
