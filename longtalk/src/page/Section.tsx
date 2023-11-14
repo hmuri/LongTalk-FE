@@ -4,8 +4,17 @@ import Nav from "../components/Nav";
 import MobileNav from "../components/MobileNav";
 import PCHeader from "../components/PCHeader";
 import Footer from "../components/Footer";
+import { useRecoilValue } from "recoil";
+import {
+  currentCategoryState,
+  filteredMoviesSelector,
+  descriptionSelector,
+} from "../recoil";
 
 export default function Section() {
+  const currentCategory = useRecoilValue(currentCategoryState);
+  const movies = useRecoilValue(filteredMoviesSelector);
+  const description = useRecoilValue(descriptionSelector);
   return (
     <Container>
       <Nav />
@@ -13,7 +22,7 @@ export default function Section() {
       <MobileNav />
       <MobileHeader />
       <SubHeader>
-        <SectionName>발단</SectionName>
+        <SectionName>{currentCategory}</SectionName>
         <CircleContainer>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +41,7 @@ export default function Section() {
             />
           </svg>
         </CircleContainer>
-        <SectionDescription>미나어리ㅏㄴ머이ㅏ러</SectionDescription>
+        <SectionDescription>{description}</SectionDescription>
       </SubHeader>
       <FilmContainer>
         <SubFilmContainer>

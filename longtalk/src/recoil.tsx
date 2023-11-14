@@ -12,6 +12,7 @@ export const submitActiveState = atom({
 const moviesByCategory = [
   {
     category: "발단",
+    desciprtion: "발단입니당",
     films: [
       {
         koreanTitle: "벽",
@@ -50,6 +51,7 @@ const moviesByCategory = [
   },
   {
     category: "위기",
+    desciprtion: "위기입니당",
     films: [
       {
         koreanTitle: "껌벅",
@@ -88,6 +90,7 @@ const moviesByCategory = [
   },
   {
     category: "절정",
+    desciprtion: "절정입니당",
     films: [
       {
         koreanTitle: "모서리의 쓸모",
@@ -126,6 +129,7 @@ const moviesByCategory = [
   },
   {
     category: "결말",
+    desciprtion: "결말입니당",
     films: [
       {
         koreanTitle: "아빠가 자꾸 살아 돌아와",
@@ -168,8 +172,17 @@ export const currentCategoryState = atom({
   key: "currentCategoryState",
   default: "발단",
 });
-
-const filteredMoviesSelector = selector({
+export const descriptionSelector = selector({
+  key: "descriptionSelector",
+  get: ({ get }) => {
+    const category = get(currentCategoryState);
+    const movies =
+      moviesByCategory.find((cat) => cat.category === category)?.desciprtion ||
+      "";
+    return movies;
+  },
+});
+export const filteredMoviesSelector = selector({
   key: "filteredMoviesSelector",
   get: ({ get }) => {
     const category = get(currentCategoryState);
