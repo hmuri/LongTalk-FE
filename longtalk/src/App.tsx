@@ -10,6 +10,10 @@ import UsgInfo from "./page/UsgInfo";
 import FAQ from "./page/FAQ";
 import { useRecoilValue } from "recoil";
 import { menuActive } from "./recoil";
+import TimeTable from "./page/TimeTable";
+import Booking from "./page/Booking";
+import Guideline from "./page/Guideline";
+import Online from "./page/Online";
 
 function App() {
   function setScreenSize() {
@@ -25,12 +29,16 @@ function App() {
     <Container isActive={isActive}>
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/section" element={<Section />} />
+        <Route path="/section/:category" element={<Section />} />
         <Route path="/notice" element={<Notice />} />
         <Route path="/holdInfo" element={<HoldInfo />} />
         <Route path="/identity" element={<Identity />} />
         <Route path="/guide" element={<UsgInfo />} />
         <Route path="/faq" element={<FAQ />} />
+        <Route path="/timeTable" element={<TimeTable />} />
+        <Route path="/booking" element={<Booking />} />
+        <Route path="/guideline" element={<Guideline />} />
+        <Route path="/online" element={<Online />} />
       </Routes>
     </Container>
   );
@@ -40,4 +48,6 @@ export default App;
 
 const Container = styled.div<{ isActive: boolean }>`
   display: flex;
+  position: relative;
+  background-color: #efeae1;
 `;

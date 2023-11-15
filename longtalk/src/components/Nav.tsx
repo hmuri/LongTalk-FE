@@ -1,11 +1,12 @@
 import { useState } from "react";
 import styled from "styled-components";
 import Circle from "../assets/svg/Circle";
-
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export default function Nav() {
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const navItems: {
     [key: string]: {
@@ -25,19 +26,24 @@ export default function Nav() {
     섹션: {
       label: "섹션",
       subItems: [
-        { label: "발단", link: "/section" },
-        { label: "위기", link: "/section" },
-        { label: "절정", link: "/section" },
-        { label: "결말", link: "/section" },
+        { label: "발단", link: "/section/발단" },
+        { label: "위기", link: "/section/위기" },
+        { label: "절정", link: "/section/절정" },
+        { label: "결말", link: "/section/결말" },
       ],
     },
     "상영/예매": {
       label: "상영/예매",
-      alertMessage: "11월 초 오픈 예정입니다.",
+      subItems: [
+        { label: "상영시간표", link: "/timetable" },
+        { label: "예매페이지", link: "/booking" },
+        { label: "관람유의사항", link: "/guideline" },
+        { label: "온라인상영", link: "/online" },
+      ],
     },
     이벤트: {
       label: "이벤트",
-      alertMessage: "11월 초 오픈 예정입니다.",
+      alertMessage: "12월 초 오픈 예정입니다.",
     },
     "페스티벌 가이드": {
       label: "페스티벌 가이드",
@@ -51,7 +57,9 @@ export default function Nav() {
 
   const handleMainItemClick = (mainItem: string) => {
     const item = navItems[mainItem];
-    if (item.alertMessage) {
+    if (item.link) {
+      navigate(item.link);
+    } else if (item.alertMessage) {
       alert(item.alertMessage);
     } else {
       setSelectedItem(mainItem === selectedItem ? null : mainItem);
@@ -156,6 +164,7 @@ const CircleContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 38px;
+  z-index: 10;
   position: absolute;
   top: 30px;
 `;
@@ -171,7 +180,7 @@ const SubHeader = styled.button<{ delay: string; active: boolean }>`
   font-weight: 400;
   line-height: normal;
   border: none;
-  z-index: 100;
+  z-index: 12;
   opacity: ${(props) => (props.active ? "1" : "0")};
   transition: opacity 0.3s ease-in-out;
   transition-delay: ${(props) => props.delay || "0s"};

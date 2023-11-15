@@ -6,10 +6,12 @@ import { useRecoilState } from "recoil";
 import { menuActive } from "../recoil";
 import { Link } from "react-router-dom";
 import CloseSquare from "../assets/icon/Close_square.png";
+import { useNavigate } from "react-router-dom";
 
 export default function MobileNav() {
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useRecoilState<boolean>(menuActive);
+  const navigate = useNavigate();
 
   const navItems: {
     [key: string]: {
@@ -29,19 +31,24 @@ export default function MobileNav() {
     섹션: {
       label: "섹션",
       subItems: [
-        { label: "발단", link: "/section" },
-        { label: "위기", link: "/section" },
-        { label: "절정", link: "/section" },
-        { label: "결말", link: "/section" },
+        { label: "발단", link: "/section/발단" },
+        { label: "위기", link: "/section/위기" },
+        { label: "절정", link: "/section/절정" },
+        { label: "결말", link: "/section/결말" },
       ],
     },
     "상영/예매": {
       label: "상영/예매",
-      alertMessage: "11월 초 오픈 예정입니다.",
+      subItems: [
+        { label: "상영시간표", link: "/timetable" },
+        { label: "예매페이지", link: "/booking" },
+        { label: "관람유의사항", link: "/guideline" },
+        { label: "온라인상영", link: "/online" },
+      ],
     },
     이벤트: {
       label: "이벤트",
-      alertMessage: "11월 초 오픈 예정입니다.",
+      alertMessage: "12월 초 오픈 예정입니다.",
     },
     "페스티벌 가이드": {
       label: "페스티벌 가이드",
@@ -59,7 +66,9 @@ export default function MobileNav() {
 
   const handleMainItemClick = (mainItem: string) => {
     const item = navItems[mainItem];
-    if (item.alertMessage) {
+    if (item.link) {
+      navigate(item.link);
+    } else if (item.alertMessage) {
       alert(item.alertMessage);
     } else {
       setSelectedItem(mainItem === selectedItem ? null : mainItem);
@@ -155,12 +164,10 @@ const Container = styled.div<{ menuOpen: boolean }>`
   @media ${(props) => props.theme.mobile} {
     display: flex;
     width: 100vw;
-    height: 100vh;
-    position: fixed;
 
     background: ${(props) => (props.menuOpen ? "rgba(0, 0, 0, 0.65)" : "none")};
 
-    z-index: ${(props) => (props.menuOpen ? "10" : "auto")};
+    z-index: ${(props) => (props.menuOpen ? "12" : "9")};
   }
 `;
 
@@ -177,7 +184,7 @@ const MenuIconBox = styled.div`
     right: 10%;
     top: 7%;
   }
-  z-index: 7;
+  z-index: 10;
 `;
 
 const CloseButton = styled.img`
@@ -215,7 +222,7 @@ const Header = styled.div`
   width: 100%;
   height: 30px;
   justify-content: space-between;
-  z-index: 5;
+  z-index: 11;
 `;
 
 const HeaderBox = styled.div`

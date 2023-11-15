@@ -86,8 +86,8 @@ export default function Notice() {
             ))}
           </Header>
         </div>
-        <Footer />
       </MenuContainer>
+      <Footer />
     </Container>
   );
 }

@@ -11,11 +11,6 @@ import { useEffect } from "react";
 
 export default function Main() {
   const isActive = useRecoilValue(menuActive);
-  const [submitActive, setSubmitActive] = useRecoilState(submitActiveState);
-
-  useEffect(() => {
-    setSubmitActive(true);
-  }, []);
 
   return (
     <Container isActive={isActive}>
@@ -24,7 +19,7 @@ export default function Main() {
       <MobileNav />
       <LogoBox />
       <MobileMotion src={MobileMain} />
-      <SubmitPage />
+      {/* <SubmitPage /> */}
     </Container>
   );
 }
@@ -69,37 +64,5 @@ const LogoBox = styled.div`
   background-image: url(${LogoImg});
   @media ${(props) => props.theme.mobile} {
     display: none;
-  }
-`;
-
-const SubmitBtn = styled.div<{ isActive: boolean }>`
-  position: fixed;
-  bottom: 15%;
-  left: calc(25% - 50px);
-  display: flex;
-  width: 50%;
-  height: 25px;
-  padding: 15px 50px;
-  justify-content: center;
-  color: white;
-  align-items: center;
-  border-radius: 40px;
-  border: 2px solid white;
-  background-color: #f1ab85;
-  font-family: Pretendard Variable;
-  font-size: 22px;
-  font-style: normal;
-  font-weight: 500;
-  z-index: 6;
-  @media ${(props) => props.theme.mobile} {
-    width: 160px;
-    height: 3px;
-    padding: 25px 70px;
-    left: calc(25% - 35px);
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 400;
-    background-color: ${(props) => (props.isActive ? "#bf8869" : "#F1AB85")};
-    border: 2px solid ${(props) => (props.isActive ? "#e9e9e9" : "white")};
   }
 `;

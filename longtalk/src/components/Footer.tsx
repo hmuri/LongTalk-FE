@@ -6,7 +6,6 @@ export default function Footer() {
 }
 
 const Container = styled.div`
-  position: relative;
   bottom: 0;
   margin-bottom: 0;
   margin-top: auto;
