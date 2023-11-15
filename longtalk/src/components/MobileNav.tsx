@@ -167,7 +167,7 @@ const Container = styled.div<{ menuOpen: boolean }>`
 
     background: ${(props) => (props.menuOpen ? "rgba(0, 0, 0, 0.65)" : "none")};
 
-    z-index: ${(props) => (props.menuOpen ? "10" : "auto")};
+    z-index: ${(props) => (props.menuOpen ? "12" : "9")};
   }
 `;
 
@@ -184,7 +184,7 @@ const MenuIconBox = styled.div`
     right: 10%;
     top: 7%;
   }
-  z-index: 7;
+  z-index: 10;
 `;
 
 const CloseButton = styled.img`
@@ -222,7 +222,7 @@ const Header = styled.div`
   width: 100%;
   height: 30px;
   justify-content: space-between;
-  z-index: 5;
+  z-index: 11;
 `;
 
 const HeaderBox = styled.div`
