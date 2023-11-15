@@ -12,8 +12,8 @@ export const submitActiveState = atom({
 const moviesByCategory = [
   {
     category: "발단",
-    desciprtion:
-      "⎯  우리는 왜 아픈 걸까, 왜 서로를 할퀴고 깨물어 흉을 내는 걸까? 그 시작을 거슬러 올라가면 결국에는 ‘불통’이다. 마음을 헤아리지 못 해서, 헤아릴 생각을 하지 않아서. 첫 번째 섹션 ‘발단’에서는 갖은 사회 문제를 진단하기 위하여 소통의 부재라는 사회 문제를 수면 위에 꺼내놓습니다.",
+    description:
+      "⎯  우리는 왜 아픈 걸까, 왜 서로를 할퀴고 깨물어 흉을 내는 걸까? 그 시작을 거슬러 올라가면 결국에는 ‘불통’이다. 마음을 헤아리지 못 해서, 헤아릴 생각을 하지 않아서. \n\n 첫 번째 섹션 ‘발단’에서는 갖은 사회 문제를 진단하기 위하여 소통의 부재라는 사회 문제를 수면 위에 꺼내놓습니다.",
     color: "#AFBFDB",
     films: [
       {
@@ -53,8 +53,8 @@ const moviesByCategory = [
   },
   {
     category: "위기",
-    desciprtion:
-      "⎯ 사실이란 이따금씩 불쾌하다. 초라한 민낯을 가감 없이 마주하는 일은 누구에게나 큰 결심이 필요한 일일 것이다. 하지만 그것이 문제 해결의 전부이다. 문제를 제대로 맞닥뜨린다면, 그 다음 스텝은 그리 어렵지 않다. 두 번째 섹션 ‘위기’에서는 사실처럼 불쾌할 만큼 찝찝한 작품으로 현실을 직시합니다.",
+    description:
+      "⎯ 사실이란 이따금씩 불쾌하다. 초라한 민낯을 가감 없이 마주하는 일은 누구에게나 큰 결심이 필요한 일일 것이다. 하지만 그것이 문제 해결의 전부이다. 문제를 제대로 맞닥뜨린다면, 그 다음 스텝은 그리 어렵지 않다. \n\n두 번째 섹션 ‘위기’에서는 사실처럼 불쾌할 만큼 찝찝한 작품으로 현실을 직시합니다.",
     color: "#CB7FB4",
     films: [
       {
@@ -94,8 +94,8 @@ const moviesByCategory = [
   },
   {
     category: "절정",
-    desciprtion:
-      "⎯ 토막 난 우리 관계의 클라이맥스는 다름이 아니라 해결 방안을 모색하는 단계이다. 가장 부드럽고 뾰족한 방법을 찾기 위해 우리는 머리를 맞대고 또 마음을 포개야 한다. 세 번째 섹션 ‘절정’에서는 문제 제기를 넘어 ‘우리’가 취해야 할 액션을 제시합니다.",
+    description:
+      "⎯ 토막 난 우리 관계의 클라이맥스는 다름이 아니라 해결 방안을 모색하는 단계이다. 가장 부드럽고 뾰족한 방법을 찾기 위해 우리는 머리를 맞대고 또 마음을 포개야 한다. \n\n세 번째 섹션 ‘절정’에서는 문제 제기를 넘어 ‘우리’가 취해야 할 액션을 제시합니다.",
     color: "#F1AB85",
     films: [
       {
@@ -135,8 +135,8 @@ const moviesByCategory = [
   },
   {
     category: "결말",
-    desciprtion:
-      "⎯ 무너진 하늘에서 솟아날 구멍을 찾듯, 비가 억수 같이 쏟아지는 하늘이 갤 날을 기다리듯 우리는 이번에도 희망을 본다. 모서리가 둥글어진 각자의 이야기를 만지작거리며, 하나의 긴 작품으로 이어질 그날을 고대한다. 마지막 네 번째 섹션 ‘결말’에서는 소통을 이루어낼 희망찬 미래를 함께 그립니다.",
+    description:
+      "⎯ 무너진 하늘에서 솟아날 구멍을 찾듯, 비가 억수 같이 쏟아지는 하늘이 갤 날을 기다리듯 우리는 이번에도 희망을 본다. 모서리가 둥글어진 각자의 이야기를 만지작거리며, 하나의 긴 작품으로 이어질 그날을 고대한다. \n\n마지막 네 번째 섹션 ‘결말’에서는 소통을 이루어낼 희망찬 미래를 함께 그립니다.",
     color: "#AFBFDB",
     films: [
       {
@@ -184,12 +184,18 @@ export const descriptionSelector = selector({
   key: "descriptionSelector",
   get: ({ get }) => {
     const category = get(currentCategoryState);
-    const movies =
-      moviesByCategory.find((cat) => cat.category === category)?.desciprtion ||
+    const description =
+      moviesByCategory.find((cat) => cat.category === category)?.description ||
       "";
-    return movies;
+    return description.split("\n").map((line, index) => (
+      <span key={index}>
+        {line}
+        <br />
+      </span>
+    ));
   },
 });
+
 export const sectionColor = selector({
   key: "sectionColor",
   get: ({ get }) => {
