@@ -31,10 +31,10 @@ export default function MobileNav() {
     섹션: {
       label: "섹션",
       subItems: [
-        { label: "발단", link: "/section" },
-        { label: "위기", link: "/section" },
-        { label: "절정", link: "/section" },
-        { label: "결말", link: "/section" },
+        { label: "발단", link: "/section/발단" },
+        { label: "위기", link: "/section/위기" },
+        { label: "절정", link: "/section/절정" },
+        { label: "결말", link: "/section/결말" },
       ],
     },
     "상영/예매": {
