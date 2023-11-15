@@ -9,6 +9,7 @@ import {
   currentCategoryState,
   filteredMoviesSelector,
   descriptionSelector,
+  sectionColor,
 } from "../recoil";
 
 import { useParams, useNavigate } from "react-router-dom";
@@ -46,6 +47,7 @@ export default function Section() {
     useRecoilState(currentCategoryState);
   const movies = useRecoilValue(filteredMoviesSelector);
   const description = useRecoilValue(descriptionSelector);
+  const color = useRecoilValue(sectionColor);
 
   useEffect(() => {
     if (category) {
@@ -101,8 +103,10 @@ export default function Section() {
       <PCHeader />
       <MobileNav />
       <MobileHeader />
-      <SubHeader>
-        <SectionName>{currentCategory}</SectionName>
+      <SubHeader color={color}>
+        <SectionName>
+          <TitleText>{currentCategory}</TitleText>
+        </SectionName>
         <CircleContainer>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -115,13 +119,15 @@ export default function Section() {
               cx="44.5"
               cy="44.5"
               r="43"
-              fill="#D9D9D9"
+              fill={color}
               stroke="black"
               stroke-width="3"
             />
           </svg>
         </CircleContainer>
-        <SectionDescription>{description}</SectionDescription>
+        <SectionDescription color={color}>
+          <DescriptionText>{description}</DescriptionText>
+        </SectionDescription>
         <LftBtn onClick={() => changeCategory("left")}></LftBtn>
         <RgtBtn onClick={() => changeCategory("right")}></RgtBtn>
       </SubHeader>
@@ -130,11 +136,12 @@ export default function Section() {
           <SubFilmContainer key={index}>
             {index === 1 ? (
               <>
-                <FilmInfoBox>
-                  {movie.koreanTitle}
-                  <br />
-                  {movie.englishTitle}
-                </FilmInfoBox>
+                <DescriptionText>
+                  <FilmInfoBox>
+                    {movie.koreanTitle}
+                    <br />({movie.englishTitle})
+                  </FilmInfoBox>
+                </DescriptionText>
                 <StealCutImg
                   src={getImagePath(movie.stealImage)}
                   alt={movie.englishTitle}
@@ -147,9 +154,10 @@ export default function Section() {
                   alt={movie.englishTitle}
                 />
                 <FilmInfoBox>
-                  {movie.koreanTitle}
-                  <br />
-                  {movie.englishTitle}
+                  <DescriptionText>
+                    {movie.koreanTitle}
+                    <br />({movie.englishTitle})
+                  </DescriptionText>
                 </FilmInfoBox>
               </>
             )}
@@ -163,7 +171,7 @@ export default function Section() {
 }
 
 const Container = styled.div`
-  margin-top: 110px;
+  margin-top: 100px;
   display: flex;
   width: 100%;
   height: 100%;
@@ -172,30 +180,71 @@ const Container = styled.div`
   background-color: #efeae1;
 `;
 
-const SubHeader = styled.div`
+const SubHeader = styled.div<{ color: string }>`
   display: flex;
   position: relative;
   width: 100%;
   height: 300px;
-  background-color: orange;
+  background-color: ${(props) => props.color};
   color: black;
 `;
 
 const SectionName = styled.div`
   display: flex;
+  position: relative;
+  align-items: center;
   flex: 0.4;
   height: 100%;
-  border-right: solid 1px black;
-  z-index: 3;
+  z-index: 2;
+  border-right: solid 3px black;
 `;
 
-const SectionDescription = styled.div`
+const TitleText = styled.div`
+  position: absolute;
+
+  color: var(--black, rgba(0, 0, 0, 0.98));
+  text-align: center;
+  font-family: NanumSquareRound;
+  font-size: 70px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  left: 40%;
+  @media ${(props) => props.theme.mobile} {
+    font-size: 30px;
+    left: 30%;
+  }
+`;
+
+const SectionDescription = styled.div<{ color: string }>`
   display: flex;
   flex: 0.6;
+
+  z-index: 3;
+  background-color: ${(props) => props.color};
+  align-items: center;
+  justify-content: center;
+  overflow: scroll;
+`;
+
+const DescriptionText = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 35px;
+  width: 100%;
   height: 100%;
-  border-right: solid 1px black;
-  z-index: 5;
-  background-color: red;
+  color: var(--black, rgba(0, 0, 0, 0.98));
+  font-family: Pretendard Variable;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 42px;
+  @media ${(props) => props.theme.mobile} {
+    font-size: 12px;
+    line-height: 17px;
+  }
 `;
 
 const CircleContainer = styled.div`
@@ -204,33 +253,34 @@ const CircleContainer = styled.div`
   left: calc(40% - 40px);
   bottom: 105.5px;
 
-  z-index: 4;
+  z-index: 2;
 `;
 
 const FilmContainer = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 const SubFilmContainer = styled.div`
   display: flex;
   width: 100%;
   height: 420px;
   background-color: #efeae1;
-  border: solid 1px red;
   overflow: hidden;
 `;
 
 const StealCutImg = styled.img`
   display: flex;
-  flex: 0.7;
-  border-right: solid 1px black;
-  object-fit: contain;
+  flex: 0.65;
+
+  object-fit: fill;
 `;
 
 const FilmInfoBox = styled.div`
   display: flex;
-  flex: 0.3;
+  flex: 0.35;
 `;
 
 const LftBtn = styled.button`
@@ -239,7 +289,7 @@ const LftBtn = styled.button`
   width: 3px;
   left: 15px;
   bottom: 148px;
-  z-index: 10;
+  z-index: 4;
   background-color: black;
 `;
 
@@ -249,6 +299,6 @@ const RgtBtn = styled.button`
   width: 3px;
   right: 15px;
   bottom: 148px;
-  z-index: 10;
+  z-index: 4;
   background-color: black;
 `;
