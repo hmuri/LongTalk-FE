@@ -128,21 +128,70 @@ export default function Section() {
         <SectionDescription color={color}>
           <DescriptionText>{description}</DescriptionText>
         </SectionDescription>
-        <LftBtn onClick={() => changeCategory("left")}></LftBtn>
-        <RgtBtn onClick={() => changeCategory("right")}></RgtBtn>
+        <LftBtn onClick={() => changeCategory("left")}>
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M16 31C24.2843 31 31 24.2843 31 16C31 7.71573 24.2843 0.999999 16 0.999999C7.71573 1 1 7.71573 1 16C1 24.2843 7.71573 31 16 31Z"
+              fill="#F1AB85"
+            />
+            <path
+              d="M31.5 16C31.5 24.5604 24.5604 31.5 16 31.5C7.43959 31.5 0.500001 24.5604 0.500001 16C0.5 7.43959 7.43959 0.5 16 0.499999C24.5604 0.499999 31.5 7.43958 31.5 16Z"
+              stroke="black"
+              stroke-opacity="0.9833"
+            />
+            <path
+              d="M6 16L5.64051 15.6525L5.30458 16L5.64051 16.3475L6 16ZM25.3333 16.5C25.6095 16.5 25.8333 16.2761 25.8333 16C25.8333 15.7239 25.6095 15.5 25.3333 15.5L25.3333 16.5ZM13.3738 7.65249L5.64051 15.6525L6.35949 16.3475L14.0928 8.34751L13.3738 7.65249ZM5.64051 16.3475L13.3738 24.3475L14.0928 23.6525L6.35949 15.6525L5.64051 16.3475ZM6 16.5L25.3333 16.5L25.3333 15.5L6 15.5L6 16.5Z"
+              fill="#222222"
+            />
+          </svg>
+        </LftBtn>
+        <RgtBtn onClick={() => changeCategory("right")}>
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M16 31C7.71573 31 0.999999 24.2843 0.999999 16C1 7.71573 7.71573 0.999999 16 0.999999C24.2843 1 31 7.71573 31 16C31 24.2843 24.2843 31 16 31Z"
+              fill="#F1AB85"
+            />
+            <path
+              d="M0.499999 16C0.499999 24.5604 7.43959 31.5 16 31.5C24.5604 31.5 31.5 24.5604 31.5 16C31.5 7.43959 24.5604 0.5 16 0.499999C7.43959 0.499999 0.5 7.43958 0.499999 16Z"
+              stroke="black"
+              stroke-opacity="0.9833"
+            />
+            <path
+              d="M26 16L26.3595 15.6525L26.6954 16L26.3595 16.3475L26 16ZM6.66667 16.5C6.39052 16.5 6.16667 16.2761 6.16667 16C6.16667 15.7239 6.39052 15.5 6.66667 15.5L6.66667 16.5ZM18.6262 7.65249L26.3595 15.6525L25.6405 16.3475L17.9072 8.34751L18.6262 7.65249ZM26.3595 16.3475L18.6262 24.3475L17.9072 23.6525L25.6405 15.6525L26.3595 16.3475ZM26 16.5L6.66667 16.5L6.66667 15.5L26 15.5L26 16.5Z"
+              fill="#222222"
+            />
+          </svg>
+        </RgtBtn>
       </SubHeader>
       <FilmContainer>
         {movies.map((movie, index) => (
           <SubFilmContainer key={index}>
             {index === 1 ? (
               <>
+                {" "}
+                <MobileStealCutImg
+                  src={getImagePath(movie.stealImage)}
+                  alt={movie.englishTitle}
+                />
                 <DescriptionText>
                   <FilmInfoBox>
-                    {movie.koreanTitle}
-                    <br />({movie.englishTitle})
+                    <span>{movie.koreanTitle} </span>
+                    <span>({movie.englishTitle}) </span>
                   </FilmInfoBox>
                 </DescriptionText>
-                <StealCutImg
+                <PCStealCutImg
                   src={getImagePath(movie.stealImage)}
                   alt={movie.englishTitle}
                 />
@@ -155,8 +204,8 @@ export default function Section() {
                 />
                 <FilmInfoBox>
                   <DescriptionText>
-                    {movie.koreanTitle}
-                    <br />({movie.englishTitle})
+                    <span>{movie.koreanTitle} </span>
+                    <span>({movie.englishTitle}) </span>
                   </DescriptionText>
                 </FilmInfoBox>
               </>
@@ -187,6 +236,9 @@ const SubHeader = styled.div<{ color: string }>`
   height: 300px;
   background-color: ${(props) => props.color};
   color: black;
+  @media ${(props) => props.theme.mobile} {
+    height: 100px;
+  }
 `;
 
 const SectionName = styled.div`
@@ -197,6 +249,9 @@ const SectionName = styled.div`
   height: 100%;
   z-index: 2;
   border-right: solid 3px black;
+  @media ${(props) => props.theme.mobile} {
+    flex: 1;
+  }
 `;
 
 const TitleText = styled.div`
@@ -212,7 +267,7 @@ const TitleText = styled.div`
   left: 40%;
   @media ${(props) => props.theme.mobile} {
     font-size: 30px;
-    left: 30%;
+    font-weight: 600;
   }
 `;
 
@@ -225,6 +280,9 @@ const SectionDescription = styled.div<{ color: string }>`
   align-items: center;
   justify-content: center;
   overflow: scroll;
+  @media ${(props) => props.theme.mobile} {
+    display: none;
+  }
 `;
 
 const DescriptionText = styled.div`
@@ -242,6 +300,7 @@ const DescriptionText = styled.div`
   font-weight: 500;
   line-height: 42px;
   @media ${(props) => props.theme.mobile} {
+    align-items: flex-start;
     font-size: 12px;
     line-height: 17px;
   }
@@ -254,6 +313,9 @@ const CircleContainer = styled.div`
   bottom: 105.5px;
 
   z-index: 2;
+  @media ${(props) => props.theme.mobile} {
+    display: none;
+  }
 `;
 
 const FilmContainer = styled.div`
@@ -269,6 +331,10 @@ const SubFilmContainer = styled.div`
   height: 420px;
   background-color: #efeae1;
   overflow: hidden;
+  @media ${(props) => props.theme.mobile} {
+    flex-direction: column;
+    height: 300px;
+  }
 `;
 
 const StealCutImg = styled.img`
@@ -276,29 +342,62 @@ const StealCutImg = styled.img`
   flex: 0.65;
 
   object-fit: fill;
+  @media ${(props) => props.theme.mobile} {
+    flex: 0.6;
+    height: 250px;
+  }
+`;
+const PCStealCutImg = styled.img`
+  display: flex;
+  flex: 0.65;
+
+  object-fit: fill;
+  @media ${(props) => props.theme.mobile} {
+    display: none;
+  }
+`;
+const MobileStealCutImg = styled.img`
+  display: none;
+  @media ${(props) => props.theme.mobile} {
+    display: flex;
+    flex: 0.6;
+    height: 250px;
+  }
 `;
 
 const FilmInfoBox = styled.div`
   display: flex;
-  flex: 0.35;
+  flex: 0.2;
+  flex-direction: column;
+  @media ${(props) => props.theme.mobile} {
+    flex: 0.4;
+
+    width: 100%;
+    height: 80px;
+  }
 `;
 
 const LftBtn = styled.button`
   position: absolute;
-  height: 3px;
-  width: 3px;
+
   left: 15px;
-  bottom: 148px;
+  bottom: 135px;
   z-index: 4;
-  background-color: black;
+  background-color: transparent;
+  border: none;
+  @media ${(props) => props.theme.mobile} {
+    bottom: 30px;
+  }
 `;
 
 const RgtBtn = styled.button`
   position: absolute;
-  height: 3px;
-  width: 3px;
+  border: none;
   right: 15px;
-  bottom: 148px;
+  bottom: 135px;
   z-index: 4;
-  background-color: black;
+  background-color: transparent;
+  @media ${(props) => props.theme.mobile} {
+    bottom: 30px;
+  }
 `;
