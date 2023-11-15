@@ -49,4 +49,5 @@ export default App;
 const Container = styled.div<{ isActive: boolean }>`
   display: flex;
   position: relative;
+  background-color: #efeae1;
 `;
