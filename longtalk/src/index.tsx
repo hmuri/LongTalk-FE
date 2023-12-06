@@ -7,6 +7,7 @@ import { RecoilRoot } from "recoil";
 import reportWebVitals from "./reportWebVitals";
 import theme from "../src/style/theme";
 import { ThemeProvider } from "styled-components";
+import { Analytics } from "@vercel/analytics/react";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -17,6 +18,7 @@ root.render(
       <RecoilRoot>
         <BrowserRouter>
           <App />
+          <Analytics />
         </BrowserRouter>
       </RecoilRoot>
     </React.StrictMode>

@@ -11,6 +11,11 @@ import { useEffect } from "react";
 
 export default function Main() {
   const isActive = useRecoilValue(menuActive);
+  const [submitActive, setSubmitActive] = useRecoilState(submitActiveState);
+
+  useEffect(() => {
+    setSubmitActive(true);
+  }, []);
 
   return (
     <Container isActive={isActive}>
@@ -19,7 +24,7 @@ export default function Main() {
       <MobileNav />
       <LogoBox />
       <MobileMotion src={MobileMain} />
-      {/* <SubmitPage /> */}
+      <SubmitPage />
     </Container>
   );
 }

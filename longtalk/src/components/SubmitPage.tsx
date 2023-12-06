@@ -4,6 +4,7 @@ import { useRecoilState } from "recoil";
 import { submitActiveState } from "../recoil";
 import CloseSquare from "../assets/icon/Close_square.png";
 import { Link } from "react-router-dom";
+import qrImg from "../assets/image/qrImg.png";
 
 export default function SubmitPage() {
   const [submitActive, setSubmitActive] = useRecoilState(submitActiveState);
@@ -16,43 +17,13 @@ export default function SubmitPage() {
       {submitActive && <CloseButton onClick={handleClose} src={CloseSquare} />}
       <InsideContainer>
         <LogoImg src={Logo}></LogoImg>
-        <TitleBox>제1회 소통영화제 「롱톡」 당선작 발표</TitleBox>
-        <TextBox>제1회 소통영화제 롱톡 당선을 발표합니다.</TextBox>
-        <CategoryBox>
-          <b>발단</b>
-          <ContentBox>
-            <div>벽</div>
-            <div>수능을 치려면</div>
-            <div>한낮의 침입자</div>
-          </ContentBox>
-        </CategoryBox>
-        <CategoryBox>
-          <b>위기</b>
-          <ContentBox>
-            <div>껌벅</div>
-            <div>워킹맘</div>
-            <div>당신은 안드로이드입니까</div>
-          </ContentBox>
-        </CategoryBox>
-        <CategoryBox>
-          <b>절정</b>
-          <ContentBox>
-            <div>모서리의 쓸모</div>
-            <div>보조바퀴</div>
-            <div>그리고 집</div>
-          </ContentBox>
-        </CategoryBox>
-        <CategoryBox>
-          <b>결말</b>
-          <ContentBox>
-            <div>아빠가 자꾸 살아 돌아와</div>
-            <div>언니를 기억해</div>
-            <div>202 201</div>
-          </ContentBox>
-        </CategoryBox>
+        <TitleBox>영화제 예매 방법 변경</TitleBox>
+
         <TextBox style={{ marginTop: "20px" }}>
-          자세한 사항은 공지사항에서 확인할 수 있습니다.
-          <br /> 출품해 주신 모든 분께 감사드립니다.
+          영화제 예매 방법이 기존 텀블벅에서 아래와 같이 구글폼으로 바뀌었으니
+          참고 바랍니다.
+          <br />
+          <br />
         </TextBox>
         <div
           style={{
@@ -62,14 +33,21 @@ export default function SubmitPage() {
             marginBottom: "30px",
           }}
         >
-          <Button>
-            <Link
-              to="/notice"
-              style={{ color: "white", border: "none", textDecoration: "none" }}
-            >
-              공지사항 바로가기
-            </Link>
-          </Button>
+          <div>
+            <Button>
+              <a
+                href="https://forms.gle/KciWDbAfvkWktHDz8"
+                style={{
+                  color: "white",
+                  border: "none",
+                  textDecoration: "none",
+                }}
+              >
+                구글폼 링크 바로가기
+              </a>
+            </Button>
+            <ImgBox src={qrImg} />
+          </div>
         </div>
       </InsideContainer>
     </Container>
@@ -113,6 +91,8 @@ const InsideContainer = styled.div`
 
 const TextBox = styled.div`
   color: #000;
+  width: 60%;
+  margin: auto;
   font-family: Pretendard Variable;
   font-size: 18px;
   font-style: normal;
@@ -133,6 +113,16 @@ const LogoImg = styled.img`
   display: flex;
   position: relative;
   top: 10px;
+  margin: 6% auto 30px auto;
+  @media ${(props) => props.theme.mobile} {
+    margin-bottom: 15px;
+  }
+`;
+const ImgBox = styled.img`
+  display: flex;
+  top: 10px;
+  width: 200px;
+  height: 200px;
   margin: 6% auto 30px auto;
   @media ${(props) => props.theme.mobile} {
     margin-bottom: 15px;
@@ -227,10 +217,12 @@ const Button = styled.button`
   border: 1px solid var(--white, #fff);
   background: var(--lido, #afbfdb);
   color: white;
+  margin: auto;
   display: flex;
   font-size: 18px;
   justify-content: center;
-  padding: 1% 5%;
+  padding: 10px 20px;
+  margin-bottom: 40px;
 `;
 
 const CloseButton = styled.img`
