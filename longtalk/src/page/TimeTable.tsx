@@ -22,88 +22,47 @@ export default function TimeTable() {
           <ContentContainer>
             <Title>상영시간표</Title>
             <Title>December 2023</Title>
+            <br />
+            <br />
             <DayContainer>
               <ImgBox />
               <DayTextBox>
                 <TextBox>
                   <TitleBox>섹션1: 발단</TitleBox>
-                  <br />
                   <TimeSlot>
                     <p className="table">13:00 – 13:20 (20')</p>
-                    <p className="table">오프닝 멘트</p>
+                    <p className="table">입장</p>
                   </TimeSlot>
                   <TimeSlot>
-                    <p className="table">13:20 – 13:30 (10')</p>
-                    <p className="table">행사 준비 및 입장</p>
+                    <p className="table">13:20 – 14:32 (72')</p>
+                    <p className="table">섹션1 상영</p>
                   </TimeSlot>
                   <TimeSlot>
-                    <p className="table">13:30 – 14:00 (30')</p>
-                    <p className="table">발단 — 영화1 상영</p>
+                    <p className="table">14:32 – 15:02 (30')</p>
+                    <p className="table">섹션1-GV 진행</p>
                   </TimeSlot>
                   <TimeSlot>
-                    <p className="table">14:00 – 14:30 (30')</p>
-                    <p className="table">발단 — 영화2 상영</p>
+                    <p className="table">15:02 – 15:10 (10')</p>
+                    <p className="table">관객 퇴장</p>
                   </TimeSlot>
-                  <TimeSlot>
-                    <p className="table">14:30 – 15:00 (30')</p>
-                    <p className="table">발단 — 영화3 상영</p>
-                  </TimeSlot>
-                  <TimeSlot>
-                    <p className="table">15:00 – 15:10 (10')</p>
-                    <p className="table">인터미션</p>
-                  </TimeSlot>
-                  <TimeSlot>
-                    <p className="table">15:10 – 15:40 (30')</p>
-                    <p className="table">발단 — GV 진행</p>
-                  </TimeSlot>
-                  <TimeSlot>
-                    <p className="table">15:40 – 16:10 (30')</p>
-                    <p className="table">프로그램 및 이벤트 진행</p>
-                  </TimeSlot>
-                  <TimeSlot>
-                    <p className="table">16:10 – 16:30 (20')</p>
-                    <p className="table">관객 퇴장 및 사진 촬영</p>
-                  </TimeSlot>
-                  <br />
                 </TextBox>
-                <MobileImgBox />
                 <TextBox>
                   <TitleBox>섹션2: 위기</TitleBox>
                   <TimeSlot>
-                    <p className="table">16:30 – 16:50 (20')</p>
-                    <p className="table">행사 준비 및 입장</p>
+                    <p className="table">15:40 – 16:00 (20')</p>
+                    <p className="table">입장</p>
                   </TimeSlot>
                   <TimeSlot>
-                    <p className="table">16:50 – 17:00 (10')</p>
-                    <p className="table">오프닝 멘트</p>
+                    <p className="table">16:00 – 16:51 (51')</p>
+                    <p className="table">섹션2 상영</p>
                   </TimeSlot>
                   <TimeSlot>
-                    <p className="table">17:00 – 17:30 (30')</p>
-                    <p className="table">위기 — 영화1 상영</p>
+                    <p className="table">16:51 – 17:21 (30')</p>
+                    <p className="table">섹션2-GV 진행</p>
                   </TimeSlot>
                   <TimeSlot>
-                    <p className="table">17:30 – 18:00 (30')</p>
-                    <p className="table">위기 — 영화2 상영</p>
-                  </TimeSlot>
-                  <TimeSlot>
-                    <p className="table">18:00 – 18:30 (30')</p>
-                    <p className="table">위기 — 영화3 상영</p>
-                  </TimeSlot>
-                  <TimeSlot>
-                    <p className="table">18:30 – 18:40 (10')</p>
-                    <p className="table">인터미션</p>
-                  </TimeSlot>
-                  <TimeSlot>
-                    <p className="table">18:40 – 19:10 (30')</p>
-                    <p className="table">위기 — GV 진행</p>
-                  </TimeSlot>
-                  <TimeSlot>
-                    <p className="table">19:10 – 19:40 (30')</p>
-                    <p className="table">프로그램 및 이벤트 진행</p>
-                  </TimeSlot>
-                  <TimeSlot>
-                    <p className="table">19:40 – 20:00 (20')</p>
-                    <p className="table">관객 퇴장 및 사진 촬영</p>
+                    <p className="table">17:21 – 17:31 (10')</p>
+                    <p className="table">관객 퇴장</p>
                   </TimeSlot>
                 </TextBox>
                 <br />
@@ -115,88 +74,46 @@ export default function TimeTable() {
               <DayTextBox>
                 <TextBox>
                   <TitleBox>섹션3: 절정</TitleBox>
-                  <br />
                   <TimeSlot>
                     <p className="table">13:00 – 13:20 (20')</p>
-                    <p className="table">행사 준비 및 입장</p>
+                    <p className="table">입장</p>
                   </TimeSlot>
                   <TimeSlot>
-                    <p className="table">13:20 – 13:30 (10')</p>
-                    <p className="table">오프닝 멘트</p>
-                  </TimeSlot>
-                  <TimeSlot>
-                    <p className="table">13:30 – 14:00 (30')</p>
-                    <p className="table">절정 — 영화1 상영</p>
-                  </TimeSlot>
-                  <TimeSlot>
-                    <p className="table">14:00 – 14:30 (30')</p>
-                    <p className="table">절정 — 영화2 상영</p>
+                    <p className="table">13:20 – 14:30 (70')</p>
+                    <p className="table">섹션3 상영</p>
                   </TimeSlot>
                   <TimeSlot>
                     <p className="table">14:30 – 15:00 (30')</p>
-                    <p className="table">절정 — 영화3 상영</p>
+                    <p className="table">섹션3-GV 진행</p>
                   </TimeSlot>
                   <TimeSlot>
                     <p className="table">15:00 – 15:10 (10')</p>
-                    <p className="table">인터미션</p>
+                    <p className="table">관객 퇴장</p>
                   </TimeSlot>
-                  <TimeSlot>
-                    <p className="table">15:10 – 15:40 (30')</p>
-                    <p className="table">절정 — GV 진행</p>
-                  </TimeSlot>
-                  <TimeSlot>
-                    <p className="table">15:40 – 16:10 (30')</p>
-                    <p className="table">프로그램 및 이벤트 진행</p>
-                  </TimeSlot>
-                  <TimeSlot>
-                    <p className="table">16:10 – 16:30 (20')</p>
-                    <p className="table">관객 퇴장 및 사진 촬영</p>
-                  </TimeSlot>
-                  <br />
                 </TextBox>
-                <MobileSunImgBox />
+
                 <TextBox>
                   <TitleBox>섹션4: 결말</TitleBox>
-                  <br />
                   <TimeSlot>
-                    <p className="table">16:30 – 16:50 (20')</p>
-                    <p className="table">행사 준비 및 입장</p>
+                    <p className="table">15:40 – 16:00 (20')</p>
+                    <p className="table">입장+오프닝 멘트+이벤트 안내</p>
                   </TimeSlot>
                   <TimeSlot>
-                    <p className="table">16:50 – 17:00 (10')</p>
-                    <p className="table">오프닝 멘트</p>
+                    <p className="table">16:00 – 17:09 (69')</p>
+                    <p className="table">섹션4 상영</p>
                   </TimeSlot>
                   <TimeSlot>
-                    <p className="table">17:00 – 17:30 (30')</p>
-                    <p className="table">결말 — 영화1 상영</p>
+                    <p className="table">17:09 – 17:39 (30')</p>
+                    <p className="table">섹션4-GV 진행</p>
                   </TimeSlot>
                   <TimeSlot>
-                    <p className="table">17:30 – 18:00 (30')</p>
-                    <p className="table">결말 — 영화2 상영</p>
+                    <p className="table">17:39 – 17:59 (20')</p>
+                    <p className="table">프로그램 진행</p>
                   </TimeSlot>
                   <TimeSlot>
-                    <p className="table">18:00 – 18:30 (30')</p>
-                    <p className="table">결말 — 영화3 상영</p>
+                    <p className="table">17:59 – 18:09 (10')</p>
+                    <p className="table">관객 퇴장</p>
                   </TimeSlot>
-                  <TimeSlot>
-                    <p className="table">18:30 – 18:40 (10')</p>
-                    <p className="table">인터미션</p>
-                  </TimeSlot>
-                  <TimeSlot>
-                    <p className="table">18:40 – 19:10 (30')</p>
-                    <p className="table">결말 — GV 진행</p>
-                  </TimeSlot>
-                  <TimeSlot>
-                    <p className="table">19:10 – 19:40 (30')</p>
-                    <p className="table">프로그램 및 이벤트 진행</p>
-                  </TimeSlot>
-                  <TimeSlot>
-                    <p className="table">19:40 – 20:00 (20')</p>
-                    <p className="table">관객 퇴장 및 사진 촬영</p>
-                  </TimeSlot>
-                  <br />
-                  <br />
-                  <br />
                 </TextBox>
               </DayTextBox>
             </DayContainer>
@@ -262,7 +179,7 @@ const Title = styled.div`
 const DayContainer = styled.div`
   display: flex;
   width: 100%;
-  height: 400px;
+  height: 300px;
   margin-top: 5%;
 
   @media ${(props) => props.theme.mobile} {
@@ -273,6 +190,7 @@ const DayContainer = styled.div`
 const ImgBox = styled.div`
   width: 110px;
   height: 60px;
+
   background-image: url(${SatTime});
   background-size: cover;
 `;
@@ -331,6 +249,7 @@ const TextBox = styled.div`
   @media ${(props) => props.theme.mobile} {
     width: 100%;
     margin-left: 20px;
+    margin-bottom: 50px;
   }
 `;
 
